@@ -591,6 +591,26 @@ app.post('/api/reset-test-password', async (req, res) => {
     });
   }
 });
+// Add this route
+app.get('/api/deploy-info', (req, res) => {
+  res.json({
+    railway: {
+      environment: process.env.RAILWAY_ENVIRONMENT,
+      serviceName: process.env.RAILWAY_SERVICE_NAME,
+      serviceId: process.env.RAILWAY_SERVICE_ID,
+      projectId: process.env.RAILWAY_PROJECT_ID,
+      projectName: process.env.RAILWAY_PROJECT_NAME,
+      publicDomain: process.env.RAILWAY_PUBLIC_DOMAIN,
+      staticUrl: process.env.RAILWAY_STATIC_URL
+    },
+    nodeEnv: process.env.NODE_ENV,
+    port: process.env.PORT,
+    host: req.get('host'),
+    protocol: req.protocol,
+    originalUrl: req.originalUrl,
+    baseUrl: `${req.protocol}://${req.get('host')}`
+  });
+});
 
 // For undefined routes
 app.use((req, res) => {
