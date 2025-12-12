@@ -77,6 +77,12 @@ import LandingPage from "./Pages/LandingPage";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Cart from "./Pages/Buyer/Cart";
+import BlockchainExplorer from "./Pages/BlockChainExplorer";
+import PaymentsHome from "./Pages/paymentsHome";
+import TransactionDetail from "./Pages/TransactionDetails";
+import UserDashboard from "./Pages/Buyer/Dashboard";
+import OrdersPage from "./Pages/Farmer/Orders";
+import BlockchainPageFarmer from "./Pages/Farmer/Blockchain";
 
 function App() {
   return (
@@ -94,13 +100,19 @@ function App() {
           </ProtectedRoute>
         }
       >
-        <Route path="dashboard" element={<Dashboard />} />
+        
         <Route path="market-prices" element={<MarketPrices />} />
         <Route path="inquiries" element={<Inquires />} />
       </Route>
       <Route path="/browse" element={<BrowseProducts />} />
       <Route path="/details/:productId" element={<ProductDetails />} />
       <Route path="/cart" element={<Cart />} />
+
+        <Route path="/farmer/dashboard" element={<Dashboard />} />
+        <Route path="/farmer/orders" element={<OrdersPage />} />
+        
+        <Route path="/farmer/blockchain" element={<BlockchainPageFarmer />} />
+        <Route path="/farmer/analytics" element={<Inquires />} />
 
       {/* Buyer Pages */}
       <Route
@@ -114,6 +126,10 @@ function App() {
         <Route path="send-inquiry" element={<SendInquiries />} />
         <Route path="my-inquiries" element={<MyInquiries />} />
       </Route>
+      <Route path="/buyer-dashboard" element={<UserDashboard />} />
+      <Route path="/blockchain-explorer" element={<BlockchainExplorer />} />
+      <Route path="/paymenthome" element={<PaymentsHome />} />
+      <Route path="/transaction/:hash" element={<TransactionDetail />} />
     </Routes>
   );
 }

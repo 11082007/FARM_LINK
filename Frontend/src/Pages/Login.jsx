@@ -19,6 +19,7 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     // const simulatedApiResponse = {
     //   user: {
     //     id: "123",
@@ -32,22 +33,22 @@ export default function LoginPage() {
     // login(simulatedApiResponse);
 
     try {
-    const userData = await loginUser(email, password);
+      const userData = await loginUser(email, password);
 
-    // Store user + token in global context
-    login(userData);
+      // Store user + token in global context
+      login(userData);
 
-    // Redirect based on role
-    if (userData.user.role === "farmer") {
-      navigate("/farmer-dashboard");
-    } else {
-      navigate("/browse");
+      // Redirect based on role
+      if (userData.user.role === "farmer") {
+        navigate("/farmer-dashboard");
+      } else {
+        navigate("/buyer-dashboard");
+      }
+    } catch (error) {
+      console.log("Login failed:", error);
+      alert("Login failed. Please check your credentials and try again.");
     }
-  } catch (error) {
-    console.log("Login failed:", error);
-    alert("Login failed. Please check your credentials and try again.");
   };
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">
       <Card className="w-full max-w-md p-8 shadow-2xl">
@@ -145,5 +146,4 @@ export default function LoginPage() {
       </Card>
     </div>
   );
-}
 }

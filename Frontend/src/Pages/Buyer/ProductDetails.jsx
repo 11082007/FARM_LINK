@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { mockProduceListings } from "../../Services/api";
+import {  getProduceListings } from "../../Services/api";
 import { MapPin, Package, ShoppingCart, Zap, ArrowLeft, CheckCircle, XCircle } from "lucide-react";
 import { useCart } from "../../Context/CartContext";
 import OrderModal from "../../Components/Order";
@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const [isOrderModalOpen, setIsOrderModalOpen] = React.useState(false);
   const [addedToCart, setAddedToCart] = React.useState(false);
 
-  const product = mockProduceListings.find(
+  const product = getProduceListings.find(
     (item) => item.id === parseInt(productId)
   );
 

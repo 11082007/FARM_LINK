@@ -4,7 +4,7 @@ import axios from "axios";
    AXIOS INSTANCE (GLOBAL)
 -----------------------------------------------------------*/
 const api = axios.create({
-  baseURL: "http://localhost:3000/api", 
+  baseURL: "https://farmlink-production.up.railway.app/api", 
   withCredentials: false,
 });
 
