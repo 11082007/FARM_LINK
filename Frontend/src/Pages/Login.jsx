@@ -18,58 +18,89 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
+  try {
+    // 1. Use Supabase to sign in
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
 
-    // const simulatedApiResponse = {
-    //   user: {
-    //     id: "123",
-    //     name: "Test User",
-    //     email: email,
-    //     role: "farmer",
-    //   },
-    //   token: "fake-jwt-token",
-    // };
+    if (error) throw error;
 
-    // login(simulatedApiResponse);
+    console.log('✅ Supabase login successful:', data.user.email);
 
+    // 2. Get user profile from your users table
+    let userProfile = null;
     try {
-
-      // Use Supabase to sign in with email and password
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
-      });
-
-      if (error) throw error;
-
-      // If login is successful
+      const { data: profileData, error: profileError } = await supabase
+        .from('users')
+        .select('*')
+        .eq('id', data.user.id)
+        .single();
       
-      // You can also check if user exists in your users table
-      if (data.user) {
-        const { data: userProfile } = await supabase
+      if (profileError) {
+        console.warn('⚠️ Profile fetch error:', profileError);
+        // Create profile if it doesn't exist
+        const { data: newProfile } = await supabase
           .from('users')
-          .select('*')
-          .eq('id', data.user.id)
+          .insert({
+            id: data.user.id,
+            email: data.user.email,
+            first_name: data.user.user_metadata?.first_name || '',
+            last_name: data.user.user_metadata?.last_name || '',
+            role: data.user.user_metadata?.role || 'buyer'
+          })
+          .select()
           .single();
         
-        console.log('User profile:', userProfile);
+        userProfile = newProfile;
+      } else {
+        userProfile = profileData;
       }
-
-      // Redirect to dashboard after 1.5 seconds
-      setTimeout(() => {
-        navigate('/buyer-dashboard');
-      }, 1500);
-
-    } catch (err) {
-      console.error('Login error:', err);
-      alert('Login failed: ' + err.message);
-    } finally {
-      setEmail('');
-      setPassword('');
+    } catch (profileErr) {
+      console.error('Profile handling error:', profileErr);
+      // Create basic profile from session
+      userProfile = {
+        id: data.user.id,
+        email: data.user.email,
+        first_name: data.user.user_metadata?.first_name || '',
+        last_name: data.user.user_metadata?.last_name || '',
+        role: data.user.user_metadata?.role || 'buyer'
+      };
     }
-  };
 
+    console.log('📋 User profile retrieved:', userProfile);
+
+    // 3. ✅ CRITICAL: Call your AuthContext login function
+    login({
+      user: data.user,          // Supabase auth user
+      profile: userProfile,     // Your custom profile
+      session: data.session     // Supabase session
+    });
+
+    console.log('🎯 AuthContext login called successfully');
+
+    // 4. Redirect to dashboard
+    setTimeout(() => {
+      // Navigate based on role if you want
+      const role = userProfile?.role || data.user.user_metadata?.role;
+      if (role === 'farmer') {
+        navigate('/farmer/dashboard');
+      } else {
+        navigate('/buyer-dashboard');
+      }
+    }, 500);
+
+  } catch (err) {
+    console.error('❌ Login error:', err);
+    alert('Login failed: ' + err.message);
+  } finally {
+    setEmail('');
+    setPassword('');
+  }
+};
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">

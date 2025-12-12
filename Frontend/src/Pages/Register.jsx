@@ -52,11 +52,16 @@ export default function RegisterPage() {
         ...formData,
         role: userType,
       };
-      const registeredUser = await registerUser(userData);
+      
+      const { user, profile } = await registerUser(userData);
 
-      // Auto-login after registration
-      login(registeredUser);
-      // Redirect based on role
+    // Store user data in context
+    login({
+      user,
+      profile,
+      token: user.id // or use session.access_token if needed
+    });
+    
       if( userType === "farmer") {
         navigate("/farmer/dashboard");
       } else {

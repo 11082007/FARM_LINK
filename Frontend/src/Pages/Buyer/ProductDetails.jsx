@@ -10,7 +10,7 @@ import {
   ArrowLeft, 
   CheckCircle, 
   XCircle, 
-  Lock 
+  Lock
 } from "lucide-react";
 import { useCart } from "../../Context/CartContext";
 import { useWeb3 } from "../../Context/Web3Context";

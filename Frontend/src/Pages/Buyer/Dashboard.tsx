@@ -188,7 +188,7 @@ const UserDashboard = () => {
             </button>
 
             <button
-              onClick={() => navigate('/wallet')}
+              onClick={() => navigate('/buyer/wallet')}
               className="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-blue-200 dark:hover:border-blue-800"
             >
               <div className="flex items-center justify-between mb-4">
@@ -215,7 +215,7 @@ const UserDashboard = () => {
               <p className="text-sm text-gray-600 dark:text-gray-400">View transactions</p>
             </button>
 
-            <button
+            {/* <button
               onClick={() => navigate('/dashboard')}
               className="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-yellow-200 dark:hover:border-yellow-800"
             >
@@ -227,7 +227,7 @@ const UserDashboard = () => {
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Analytics</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">View insights</p>
-            </button>
+            </button> */}
           </div>
 
           {/* Stats Overview */}
