@@ -1,6 +1,6 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import readline from "readline";
-import dotenv from "dotenv";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const readline = require("readline");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
