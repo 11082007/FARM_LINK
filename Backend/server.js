@@ -42,6 +42,7 @@ console.log("Sequelize Config Host:", sequelize.config.host);
 console.log("Sequelize Config Port:", sequelize.config.port);
 console.log("Sequelize Config Database:", sequelize.config.database);
 console.log("Sequelize Config Username:", sequelize.config.username);
+console.log("Sequelize Config Dialect:", sequelize.config.dialect);
 
 // Show available environment variables
 console.log("\nEnvironment Variables:");
@@ -57,13 +58,28 @@ console.log("MYSQLPORT:", process.env.MYSQLPORT || "Not set");
 console.log("MYSQLPASSWORD:", process.env.MYSQLPASSWORD ? "*** Set ***" : "Not set");
 console.log("==================================");
 
-// CORS Configuration
+// CORS Configuration - MORE PERMISSIVE FOR DEBUGGING
 const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    'https://farmlink-production.up.railway.app', // Your Railway backend
-    process.env.FRONTEND_URL
-  ].filter(Boolean),
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // List of allowed origins
+    const allowedOrigins = [
+      'http://localhost:3000',
+      'http://127.0.0.1:3000',
+      'http://localhost:5173',
+      'http://localhost:8080',
+      'https://farmlink-production.up.railway.app'
+    ];
+    
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.includes('localhost')) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200
 };
@@ -72,6 +88,15 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Simple test route - ADD THIS FIRST
+app.get("/test", (req, res) => {
+  res.json({ 
+    message: "Test route is working!",
+    timestamp: new Date().toISOString(),
+    success: true
+  });
+});
 
 // API Routes
 app.use('/api/escrow', escrowRoutes);
@@ -85,6 +110,8 @@ app.get("/", (req, res) => {
   res.status(200).json({ 
     msg: "FarmLink Backend API is running",
     endpoints: {
+      test: '/test',
+      check: '/check',
       escrow: {
         create: 'POST /api/escrow/create',
         release: 'POST /api/escrow/:id/release',
@@ -116,6 +143,12 @@ app.get("/check", async (req, res) => {
     res.status(200).json({ 
       message: "FarmLink Backend API is running",
       version: "1.0.0",
+      server: {
+        status: "OK",
+        port: PORT,
+        host: req.hostname,
+        ip: req.ip
+      },
       database: {
         status: "Connected",
         host: sequelize.config.host,
@@ -714,12 +747,31 @@ app.get('/api/deploy-info', (req, res) => {
   });
 });
 
+// ADDED: Server status endpoint
+app.get('/api/server-status', (req, res) => {
+  const os = require('os');
+  res.json({
+    status: 'running',
+    uptime: process.uptime(),
+    memory: {
+      total: os.totalmem(),
+      free: os.freemem(),
+      usage: (os.totalmem() - os.freemem()) / os.totalmem() * 100
+    },
+    cpu: os.cpus().length,
+    platform: os.platform(),
+    nodeVersion: process.version
+  });
+});
+
 // For undefined routes
 app.use((req, res) => {
   res.status(404).json({ 
     success: false, 
     message: "Route not found",
-    path: req.originalUrl
+    path: req.originalUrl,
+    method: req.method,
+    availableRoutes: ['/', '/test', '/check', '/api/test-db']
   });
 });
 
@@ -732,6 +784,22 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
 });
+
+// Helper function to get local IP
+function getLocalIpAddress() {
+  const os = require('os');
+  const interfaces = os.networkInterfaces();
+  
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      // Skip internal and non-IPv4 addresses
+      if (iface.family === 'IPv4' && !iface.internal) {
+        return iface.address;
+      }
+    }
+  }
+  return 'localhost';
+}
 
 // Updated startServer function with better error handling
 async function startServer() {
@@ -777,17 +845,28 @@ async function startServer() {
       console.log("Sync check skipped due to error:", syncError.message);
     }
     
-    // Start server
-    app.listen(PORT, '0.0.0.0', () => {
+    // Get local IP address
+    const localIp = getLocalIpAddress();
+    
+    // Start server - FIXED: Remove '0.0.0.0' binding issue
+    const server = app.listen(PORT, () => {
+      console.log(`\n=== SERVER STARTED SUCCESSFULLY ===`);
       console.log(`Server running on port ${PORT}`);
-      console.log(`API Base URL: http://localhost:${PORT}`);
-      console.log(`Health check: http://localhost:${PORT}/check`);
-      console.log(`Database test: http://localhost:${PORT}/api/test-db`);
-      console.log(`Escrow endpoints: http://localhost:${PORT}/api/escrow`);
-      console.log(`Check existing users: GET http://localhost:${PORT}/api/existing-users`);
-      console.log(`Update wallet: POST http://localhost:${PORT}/api/users/:id/wallet`);
-      console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-      console.log("");
+      console.log(`\nAvailable URLs:`);
+      console.log(`- Local URL: http://localhost:${PORT}`);
+      console.log(`- Network URL: http://127.0.0.1:${PORT}`);
+      console.log(`- Your IP: http://${localIp}:${PORT}`);
+      console.log(`\nTest Endpoints:`);
+      console.log(`- Basic test: http://localhost:${PORT}/test`);
+      console.log(`- Health check: http://localhost:${PORT}/check`);
+      console.log(`- Database test: http://localhost:${PORT}/api/test-db`);
+      console.log(`- Server status: http://localhost:${PORT}/api/server-status`);
+      console.log(`\nAPI Endpoints:`);
+      console.log(`- Escrow: http://localhost:${PORT}/api/escrow`);
+      console.log(`- Check existing users: GET http://localhost:${PORT}/api/existing-users`);
+      console.log(`- Update wallet: POST http://localhost:${PORT}/api/users/:id/wallet`);
+      console.log(`\nEnvironment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`======================================\n`);
       
       if (isRailway) {
         console.log("RUNNING ON RAILWAY");
@@ -799,7 +878,31 @@ async function startServer() {
         console.log("IMPORTANT: If login fails, check if Users table has data");
         console.log("Run: curl -X POST http://localhost:3000/api/create-test-users");
         console.log("Reset password: curl -X POST http://localhost:3000/api/reset-test-password");
+        console.log("\nTo test connection:");
+        console.log(`curl http://localhost:${PORT}/test`);
+        console.log(`curl http://localhost:${PORT}/check`);
       }
+    });
+    
+    // Handle server errors
+    server.on('error', (error) => {
+      if (error.code === 'EADDRINUSE') {
+        console.error(`Port ${PORT} is already in use!`);
+        console.log(`Try changing PORT in .env file to 5001 or another port.`);
+        console.log(`Or kill the process using: lsof -ti:${PORT} | xargs kill -9`);
+      } else {
+        console.error('Server error:', error.message);
+      }
+      process.exit(1);
+    });
+    
+    // Handle graceful shutdown
+    process.on('SIGTERM', () => {
+      console.log('SIGTERM received, shutting down gracefully...');
+      server.close(() => {
+        console.log('Server closed');
+        process.exit(0);
+      });
     });
     
   } catch (error) {
@@ -824,6 +927,7 @@ async function startServer() {
       console.error("1. Check if MySQL is running locally (mysql -u root -p)");
       console.error("2. Verify database credentials in .env file");
       console.error("3. Check if Farm_link database exists");
+      console.error("4. Check if port 3000 is already in use: lsof -i :3000");
     }
     
     console.error("\nCurrent Environment:");
