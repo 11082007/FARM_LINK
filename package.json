@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-  "dependencies": {}
-=======
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -37,5 +34,4 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.0.8"
   }
->>>>>>> 9063ff5e1f91ee41f3667e5bb0b1e68d31bc5a59
 }
