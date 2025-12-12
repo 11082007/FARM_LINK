@@ -17,59 +17,54 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
+    const hardcodedCredentials = [
+      {
+        email: "farmer@farmlink.com",
+        password: "farmerpassword",
+        role: "farmer",
+      },
+      {
+        email: "buyer@farmlink.com",
+        password: "buyerpassword",
+        role: "buyer",
+      },
+    ];
 
-    // const simulatedApiResponse = {
-    //   user: {
-    //     id: "123",
-    //     name: "Test User",
-    //     email: email,
-    //     role: "farmer",
-    //   },
-    //   token: "fake-jwt-token",
-    // };
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
 
-    // login(simulatedApiResponse);
+    const user = hardcodedCredentials.find(
+      (u) => u.email === trimmedEmail && u.password === trimmedPassword
+    );
 
-    try {
+    console.log("Matching user:", user);
 
-      // Use Supabase to sign in with email and password
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
-      });
+    if (!user) {
+      alert("Invalid email or password.");
+      return;
+    }
 
-      if (error) throw error;
+    const simulatedApiResponse = {
+      user: {
+        id: "123",
+        name: "Test User",
+        email: trimmedEmail,
+        role: user.role,
+      },
+      token: "fake-jwt-token",
+    };
 
-      // If login is successful
-      
-      // You can also check if user exists in your users table
-      if (data.user) {
-        const { data: userProfile } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', data.user.id)
-          .single();
-        
-        console.log('User profile:', userProfile);
-      }
+    login(simulatedApiResponse);
 
-      // Redirect to dashboard after 1.5 seconds
-      setTimeout(() => {
-        navigate('/buyer-dashboard');
-      }, 1500);
-
-    } catch (err) {
-      console.error('Login error:', err);
-      alert('Login failed: ' + err.message);
-    } finally {
-      setEmail('');
-      setPassword('');
+    if (user.role === "farmer") {
+      navigate("/farmer/dashboard");
+    } else {
+      navigate("/buyer-dashboard");
     }
   };
-
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">
@@ -169,4 +164,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
