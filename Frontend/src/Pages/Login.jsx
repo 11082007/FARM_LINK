@@ -7,6 +7,7 @@ import Button from "../Components/Button/index.jsx";
 import Card from "../Components/Card/index.jsx";
 import Input from "../Components/Input/index.jsx";
 import { loginUser } from "../Services/api.js";
+import { supabase } from "../lib/supabase.js";
 
 export default function LoginPage() {
   const { t } = useTranslation("auth");
@@ -32,21 +33,41 @@ export default function LoginPage() {
     // login(simulatedApiResponse);
 
     try {
-    const userData = await loginUser(email, password);
+      // Use Supabase to sign in with email and password
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
 
-    // Store user + token in global context
-    login(userData);
+      if (error) throw error;
 
-    // Redirect based on role
-    if (userData.user.role === "farmer") {
-      navigate("/farmer-dashboard");
-    } else {
-      navigate("/browse");
+      // If login is successful
+      
+      // You can also check if user exists in your users table
+      if (data.user) {
+        const { data: userProfile } = await supabase
+          .from('users')
+          .select('*')
+          .eq('id', data.user.id)
+          .single();
+        
+        console.log('User profile:', userProfile);
+      }
+
+      // Redirect to dashboard after 1.5 seconds
+      setTimeout(() => {
+        navigate('/browse');
+      }, 1500);
+
+    } catch (err) {
+      console.error('Login error:', err);
+      alert('Login failed: ' + err.message);
+    } finally {
+      setEmail('');
+      setPassword('');
     }
-  } catch (error) {
-    console.log("Login failed:", error);
-    alert("Login failed. Please check your credentials and try again.");
   };
+
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">
@@ -146,4 +167,4 @@ export default function LoginPage() {
     </div>
   );
 }
-}
+
