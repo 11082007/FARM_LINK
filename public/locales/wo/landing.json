@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "Connecting Farmers Directly to Buyers",
+    "subtitle": "No middlemen. No post-harvest loss. Just fair prices and fresh produce."
+  },
+  "buttons": {
+    "startAsFarmer": "Start as a Farmer",
+    "startAsBuyer": "Start as a Buyer"
+  },
+  "features": {
+    "title": "Everything You Need to Trade Successfully",
+    "subtitle": "Built specifically for African farmers and buyers, with features that work even in low-connectivity areas.",
+    "smartSearch": {
+      "title": "Smart Search & Filters",
+      "desc": "Find exactly what you need with advanced search by produce type, location, quantity, and price range."
+    },
+    "escrow": {
+      "title": "Smart Contract Escrow",
+      "desc": "Funds are held in a secure smart contract and only released when you verify the produce."
+    },
+    "locationMatching": {
+      "title": "Location-Based Matching",
+      "desc": "Connect with farmers and buyers in your area to reduce transportation costs and ensure freshness."
+    },
+    "smsAlerts": {
+      "title": "Real-Time SMS Alerts",
+      "desc": "Get instant notifications for new orders, price changes, and buyer inquiries directly to your phone."
+    },
+    "priceTransparency": {
+      "title": "Market Price Transparency",
+      "desc": "Access real-time market prices to make informed decisions and negotiate fair deals."
+    },
+    "verifiedUsers": {
+      "title": "Verified Users",
+      "desc": "Trade with confidence knowing all users are verified for authenticity and reliability."
+    },
+    "mobileFirst": {
+      "title": "Mobile-First Design",
+      "desc": "Access the platform from any device, optimized for mobile users with limited connectivity."
+    }
+  },
+  "howItWorks": {
+    "title": "How FarmLink Works",
+    "subtitle": "Simple, straightforward, and designed for everyone - from tech-savvy buyers to farmers with basic phones.",
+    "step": "Step {{count}}",
+    "createAccount": {
+      "title": "Create Your Account",
+      "desc": "Sign up as a farmer or buyer in minutes. Verify your identity to start trading."
+    },
+    "listProduce": {
+      "title": "List or Browse Produce",
+      "desc": "Farmers post their available produce. Buyers search and filter to find what they need."
+    },
+    "connect": {
+      "title": "Connect & Negotiate",
+      "desc": "Contact each other directly through the platform. Negotiate prices and quantities."
+    },
+    "getUpdates": {
+      "title": "Get SMS Updates",
+      "desc": "Receive instant SMS notifications for orders, inquiries, and price updates."
+    }
+  },
+  "problem": {
+    "kicker": "The Problem",
+    "title": "Farmers Are Losing Money Every Day",
+    "card1": {
+      "title": "Post-Harvest Losses",
+      "desc": "30-40% of produce goes to waste due to lack of market access and poor storage facilities."
+    },
+    "card2": {
+      "title": "Middlemen Exploitation",
+      "desc": "Farmers receive only a fraction of the final selling price while middlemen take the majority."
+    },
+    "card3": {
+      "title": "No Market Information",
+      "desc": "Lack of real-time pricing data leaves farmers vulnerable to unfair negotiations."
+    },
+    "card4": {
+      "title": "Climate Change",
+      "desc": "Unpredictable rain and sudden droughts mean traditional planting seasons are a gamble, leading to total crop failure."
+    },
+    "card5": {
+      "title": "Pests & Crop Disease",
+      "desc": "A new pest or disease can wipe out an entire farm in 48 hours, with no expert to ask for help."
+    }
+  },
+  "solution": {
+    "kicker": "Our Solution",
+    "title": "Direct Market Access & AI Co-Pilot",
+    "card1": {
+      "title": "Direct Connections",
+      "desc": "Connect farmers directly with buyers, eliminating middlemen and ensuring fair prices for both parties."
+    },
+    "card2": {
+      "title": "Transparent Pricing",
+      "desc": "Real-time market prices visible to all users, ensuring fair negotiations and informed decisions."
+    },
+    "card3": {
+      "title": "SMS Notifications",
+      "desc": "Instant SMS alerts for new orders, price updates, and buyer inquiries - no internet required."
+    },
+    "card4": {
+      "title": "AI Planting Advisor",
+      "desc": "Our co-pilot analyzes climate data and forecasts to tell you the *exact optimal week* to plant your crops."
+    },
+    "card5": {
+      "title": "Instant Disease Scanner",
+      "desc": "Just take a picture of a sick leaf, and our AI will instantly identify the disease and give you low-cost treatment options."
+    }
+  }
+}

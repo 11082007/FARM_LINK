@@ -50,7 +50,7 @@ export default function Login() {
             <div className="rounded-xl bg-primary p-2">
               <Sprout className="h-6 w-6 text-white" />
             </div>
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
+            <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
               FarmLink
             </span>
           </Link>
