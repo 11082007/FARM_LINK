@@ -1,111 +1,111 @@
 {
   "hero": {
-    "title": "Connecting Farmers Directly to Buyers",
-    "subtitle": "No middlemen. No post-harvest loss. Just fair prices and fresh produce."
+    "title": "Sopọ Awọn agbẹ taara pẹlu awọn ti onra",
+    "subtitle": "Ko si awọn agbedemeji. Ko si pipadanu lẹhin ikore. Owó tí ó dára àti èso tuntun."
   },
   "buttons": {
-    "startAsFarmer": "Start as a Farmer",
-    "startAsBuyer": "Start as a Buyer"
+    "startAsFarmer": "Bẹrẹ bi aladugbo",
+    "startAsBuyer": "Bẹrẹ bi olura kan"
   },
   "features": {
-    "title": "Everything You Need to Trade Successfully",
-    "subtitle": "Built specifically for African farmers and buyers, with features that work even in low-connectivity areas.",
+    "title": "Ohun gbogbo ti o nilo lati ṣaṣeyọri",
+    "subtitle": "Ti a kọ ni pataki fun awọn agbẹ Afirika ati awọn ti onra, pẹlu awọn ẹya ti o ṣiṣẹ paapaa ni awọn agbegbe ti o ni asopọ kekere.",
     "smartSearch": {
       "title": "Smart Search & Filters",
-      "desc": "Find exactly what you need with advanced search by produce type, location, quantity, and price range."
+      "desc": "Wá ohun tí o nílò ní pàtó nípa lílo ìwádìí ìtẹ̀síwájú nípa irú èso, agbègbè, opoiyebí, àti iye ìdíyelé."
     },
     "escrow": {
-      "title": "Smart Contract Escrow",
-      "desc": "Funds are held in a secure smart contract and only released when you verify the produce."
+      "title": "Smart Adehun Escrow",
+      "desc": "Awọn owo ti wa ni fipamọ ni adehun ọlọgbọn ti o ni aabo ati pe a tu silẹ nikan ni kete ti o ba jẹrisi ọja naa."
     },
     "locationMatching": {
-      "title": "Location-Based Matching",
-      "desc": "Connect with farmers and buyers in your area to reduce transportation costs and ensure freshness."
+      "title": "Ibaramu ti o da lori ipo",
+      "desc": "Sopọ pẹlu awọn agbẹ agbegbe ati awọn ti onra lati dinku awọn idiyele gbigbe ati tọju awọn ọja alabapade."
     },
     "smsAlerts": {
-      "title": "Real-Time SMS Alerts",
-      "desc": "Get instant notifications for new orders, price changes, and buyer inquiries directly to your phone."
+      "title": "Awọn itaniji SMS gidi-akoko",
+      "desc": "Gba awọn iwifunni lẹsẹkẹsẹ lori foonu rẹ fun awọn aṣẹ tuntun, awọn iyipada idiyele, ati awọn ibeere ti onra."
     },
     "priceTransparency": {
-      "title": "Market Price Transparency",
-      "desc": "Access real-time market prices to make informed decisions and negotiate fair deals."
+      "title": "Akoyawo Iye Ọja",
+      "desc": "Wọle si awọn idiyele ọja laaye lati ṣe awọn ipinnu alaye ati duna awọn iṣowo ododo."
     },
     "verifiedUsers": {
-      "title": "Verified Users",
-      "desc": "Trade with confidence knowing all users are verified for authenticity and reliability."
+      "title": "Awọn olumulo ti a ṣayẹwo",
+      "desc": "Iṣowo ni igboya mọ pe gbogbo awọn olumulo ni a jẹrisi fun otitọ ati igbẹkẹle."
     },
     "mobileFirst": {
-      "title": "Mobile-First Design",
-      "desc": "Access the platform from any device, optimized for mobile users with limited connectivity."
+      "title": "Oniru alagbeka-akọkọ",
+      "desc": "Wọle si pẹpẹ lati eyikeyi ẹrọ, iṣapeye fun awọn olumulo alagbeka pẹlu intanẹẹti to lopin."
     }
   },
   "howItWorks": {
-    "title": "How FarmLink Works",
-    "subtitle": "Simple, straightforward, and designed for everyone - from tech-savvy buyers to farmers with basic phones.",
-    "step": "Step {{count}}",
+    "title": "Bawo ni FarmLink ṣe n ṣiṣẹ",
+    "subtitle": "Rọrun, taara, ati apẹrẹ fun gbogbo eniyan—lati awọn ti onra imọ-ẹrọ si awọn agbẹ pẹlu awọn foonu ipilẹ.",
+    "step": "Igbesẹ {{ka}}",
     "createAccount": {
-      "title": "Create Your Account",
-      "desc": "Sign up as a farmer or buyer in minutes. Verify your identity to start trading."
+      "title": "Ṣẹda akọọlẹ rẹ",
+      "desc": "Forukọsilẹ bi olugbo tabi olura ni iṣẹju. Ṣayẹwo idanimọ rẹ lati bẹrẹ iṣowo."
     },
     "listProduce": {
-      "title": "List or Browse Produce",
-      "desc": "Farmers post their available produce. Buyers search and filter to find what they need."
+      "title": "Akojọ tabi ṣawari awọn eso",
+      "desc": "Awọn agbẹ ṣe atokọ awọn ọja ti o wa. Awọn ti onra n wa ati ṣe àlẹmọ lati wa ohun ti wọn nilo."
     },
     "connect": {
-      "title": "Connect & Negotiate",
-      "desc": "Contact each other directly through the platform. Negotiate prices and quantities."
+      "title": "Sopọ ati Idunadura",
+      "desc": "Kan si ara wọn taara nipasẹ pẹpẹ naa. Ṣe idunadura awọn idiyele ati awọn titoye."
     },
     "getUpdates": {
-      "title": "Get SMS Updates",
-      "desc": "Receive instant SMS notifications for orders, inquiries, and price updates."
+      "title": "Gba awọn imudojuiwọn SMS",
+      "desc": "Gba awọn itaniji SMS lẹsẹkẹsẹ fun awọn aṣẹ, awọn ibeere, ati awọn imudojuiwọn idiyele."
     }
   },
   "problem": {
-    "kicker": "The Problem",
-    "title": "Farmers Are Losing Money Every Day",
+    "kicker": "Iṣoro naa",
+    "title": "Awọn aladugbo n pese owo lojoojumọ",
     "card1": {
-      "title": "Post-Harvest Losses",
-      "desc": "30-40% of produce goes to waste due to lack of market access and poor storage facilities."
+      "title": "Awọn adanu lẹhin ikore",
+      "desc": "30-40% ti awọn ọja ti wa ni egbin nitori wiwọle ọja ti o lopin ati awọn ohun elo ibi ipamọ ti ko to."
     },
     "card2": {
-      "title": "Middlemen Exploitation",
-      "desc": "Farmers receive only a fraction of the final selling price while middlemen take the majority."
+      "title": "Awọn Middlemen Ilokulo",
+      "desc": "Awọn agbẹ gba apakan kekere ti idiyele tita ikẹhin, lakoko ti awọn agbedemeji gba pupọ julọ."
     },
     "card3": {
-      "title": "No Market Information",
-      "desc": "Lack of real-time pricing data leaves farmers vulnerable to unfair negotiations."
+      "title": "Ko si Alaye Ọja",
+      "desc": "Aini data ifowoleri akoko gidi jẹ ki awọn agbẹ ni ipalara si awọn idunadura aiṣedeede."
     },
     "card4": {
-      "title": "Climate Change",
-      "desc": "Unpredictable rain and sudden droughts mean traditional planting seasons are a gamble, leading to total crop failure."
+      "title": "Iyipada oju-ọjọ",
+      "desc": "Ojo ti ko ni asọtẹlẹ ati awọn ọgbẹ lojiji jẹ ki awọn akoko gbingbin ibile jẹ eewu, nigbagbogbo ti o yorisi ikuna irugbin patapata."
     },
     "card5": {
-      "title": "Pests & Crop Disease",
-      "desc": "A new pest or disease can wipe out an entire farm in 48 hours, with no expert to ask for help."
+      "title": "Awọn ajenirun ati awọn arun irugbin",
+      "desc": "Kokoro tuntun tabi arun le pa gbogbo oko run ni awọn wakati 48 nikan, laisi amoye ti o wa lati ṣe iranlọwọ."
     }
   },
   "solution": {
-    "kicker": "Our Solution",
-    "title": "Direct Market Access & AI Co-Pilot",
+    "kicker": "Ojútùú Wa",
+    "title": "Wiwọle Ọja Taara ati AI Co-Pilot",
     "card1": {
-      "title": "Direct Connections",
-      "desc": "Connect farmers directly with buyers, eliminating middlemen and ensuring fair prices for both parties."
+      "title": "Awọn asopọ taara",
+      "desc": "Sopọ awọn agbẹ taara pẹlu awọn ti onra, gige awọn agbedemeji ati rii daju pe awọn idiyele deede fun gbogbo eniyan."
     },
     "card2": {
-      "title": "Transparent Pricing",
-      "desc": "Real-time market prices visible to all users, ensuring fair negotiations and informed decisions."
+      "title": "Ko ifowoleri",
+      "desc": "Awọn idiyele ọja akoko gidi wa fun gbogbo awọn olumulo, ni idaniloju awọn idunadura deede ati awọn ipinnu alaye."
     },
     "card3": {
-      "title": "SMS Notifications",
-      "desc": "Instant SMS alerts for new orders, price updates, and buyer inquiries - no internet required."
+      "title": "Awọn iwifunni SMS",
+      "desc": "Gba awọn itaniji SMS lẹsẹkẹsẹ fun awọn aṣẹ tuntun, awọn ayipada idiyele, ati awọn ibeere ti onra—ko si intanẹẹti ti o nilo."
     },
     "card4": {
-      "title": "AI Planting Advisor",
-      "desc": "Our co-pilot analyzes climate data and forecasts to tell you the *exact optimal week* to plant your crops."
+      "title": "Onimọnran Ọgba AI",
+      "desc": "Alabaṣiṣẹpọ wa ṣe itupalẹ data oju-ọjọ ati awọn asọtẹlẹ lati sọ fun ọ ọsẹ ti o dara julọ lati gbin awọn irugbin rẹ."
     },
     "card5": {
       "title": "Instant Disease Scanner",
-      "desc": "Just take a picture of a sick leaf, and our AI will instantly identify the disease and give you low-cost treatment options."
+      "desc": "O kan ya aworan ti bunkun alaisan, ati pe AI wa yoo ṣe idanimọ arun naa lẹsẹkẹsẹ ati pese awọn aṣayan itọju ti ifarada."
     }
   }
 }

@@ -1,111 +1,111 @@
 {
   "hero": {
-    "title": "Connecting Farmers Directly to Buyers",
-    "subtitle": "No middlemen. No post-harvest loss. Just fair prices and fresh produce."
+    "title": "Ịjikọ ndị ọrụ ugbo kpọmkwem na ndị ahịa",
+    "subtitle": "Ọ dịghị ndị na-azụ ahịa n'etiti. Ọ dịghị mfu mgbe ị na-azụ ọka. Naanị ọnụahịa kwesịrị ekwesị na ngwaahịa ọhụrụ."
   },
   "buttons": {
-    "startAsFarmer": "Start as a Farmer",
-    "startAsBuyer": "Start as a Buyer"
+    "startAsFarmer": "Malite dị ka onye ugbo",
+    "startAsBuyer": "Malite dị ka Onye Na-azụ"
   },
   "features": {
-    "title": "Everything You Need to Trade Successfully",
-    "subtitle": "Built specifically for African farmers and buyers, with features that work even in low-connectivity areas.",
+    "title": "Ihe niile ịchọrọ iji zụta ahịa nke ọma",
+    "subtitle": "E wuru ya nke ọma maka ndị ọrụ ugbo na ndị na-azụ ahịa Afrịka, nwere atụmatụ na-arụ ọrụ ọbụlagodi na ebe netwọk adịghị ike.",
     "smartSearch": {
-      "title": "Smart Search & Filters",
-      "desc": "Find exactly what you need with advanced search by produce type, location, quantity, and price range."
+      "title": "Nchọgharị Amamihe & Nzacha",
+      "desc": "Chọta kpọmkwem ihe ịchọrọ site na nchọgharị dị elu dịka ụdị ngwaahịa, ọnọdụ, oke, na ọnụahịa."
     },
     "escrow": {
-      "title": "Smart Contract Escrow",
-      "desc": "Funds are held in a secure smart contract and only released when you verify the produce."
+      "title": "Nkwekọrịta Mma Ezigbo",
+      "desc": "Ebe ego na-edebe na nkwekọrịta amamihe echekwara nke ọma ma a na-ewepụta ya naanị mgbe ị nyochachara ngwaahịa ahụ."
     },
     "locationMatching": {
-      "title": "Location-Based Matching",
-      "desc": "Connect with farmers and buyers in your area to reduce transportation costs and ensure freshness."
+      "title": "Njikọ Dabere na Ebe",
+      "desc": "Jikọọ na ndị ọkà ọrụ ugbo na ndị na-azụ ahịa n’ebe gị nọ iji belata ụgwọ njem ma hụ na ngwaahịa dị ọhụrụ."
     },
     "smsAlerts": {
-      "title": "Real-Time SMS Alerts",
-      "desc": "Get instant notifications for new orders, price changes, and buyer inquiries directly to your phone."
+      "title": "Mgbaàmà SMS n’oge ezumike",
+      "desc": "Nweta nkwupụta ozugbo maka iwu ọhụrụ, mgbanwe ọnụahịa, na ajụjụ ndị zụrụ ahịa ozugbo na ekwentị gị."
     },
     "priceTransparency": {
-      "title": "Market Price Transparency",
-      "desc": "Access real-time market prices to make informed decisions and negotiate fair deals."
+      "title": "Ịkọrọ ọnụahịa ahịa n’ụzọ doro anya",
+      "desc": "Nweta ọnụ ahịa ahịa n'oge a iji mee mkpebi ziri ezi ma kwurịta ọnụ ahịa kwesịrị ekwesị."
     },
     "verifiedUsers": {
-      "title": "Verified Users",
-      "desc": "Trade with confidence knowing all users are verified for authenticity and reliability."
+      "title": "Ndị Ọrụ Eji Nleba Anya",
+      "desc": "Zụta ma ọ bụ ree ahịa n’ụzọ zuru obi, mara na a nyochachala onye ọ bụla maka ịdị ọcha na ntụkwasị obi."
     },
     "mobileFirst": {
-      "title": "Mobile-First Design",
-      "desc": "Access the platform from any device, optimized for mobile users with limited connectivity."
+      "title": "Imewe Maka Mkpanaka Mbụ",
+      "desc": "Nweta ikpo okwu site na ngwaọrụ ọ bụla, dabara adaba maka ndị ọrụ ekwentị nwere njikọ ọjọọ."
     }
   },
   "howItWorks": {
-    "title": "How FarmLink Works",
-    "subtitle": "Simple, straightforward, and designed for everyone - from tech-savvy buyers to farmers with basic phones.",
-    "step": "Step {{count}}",
+    "title": "Otu FarmLink Si Arụ Ọrụ",
+    "subtitle": "Nzọụkwụ dị mfe, doro anya, ma emere onye ọ bụla - site n'aka ndị nwere nka na teknụzụ ruo n'aka ndị ọrụ ugbo nwere ekwentị dị mfe.",
+    "step": "Nzọụkwụ {{count}}",
     "createAccount": {
-      "title": "Create Your Account",
-      "desc": "Sign up as a farmer or buyer in minutes. Verify your identity to start trading."
+      "title": "Mepụta Akaụntụ Gị",
+      "desc": "Debanye aha dịka onye ọrụ ugbo ma ọ bụ onye na-azụta n'ime nkeji. Nyochaa njirimara gị iji malite ịzụ ahịa."
     },
     "listProduce": {
-      "title": "List or Browse Produce",
-      "desc": "Farmers post their available produce. Buyers search and filter to find what they need."
+      "title": "Depụta ma ọ bụ chọọ Mmepụta",
+      "desc": "Ụmụ ahịa ugbo na-ebipụta ihe ubi ha nwere. Ndị na-azụ ahịa na-achọ ma na-achịkọta iji chọta ihe ha chọrọ."
     },
     "connect": {
-      "title": "Connect & Negotiate",
-      "desc": "Contact each other directly through the platform. Negotiate prices and quantities."
+      "title": "Jikọọ & Kwurịta",
+      "desc": "Kpọtụrụ ibe gị ozugbo site na ikpo okwu ahụ. Kwurịta ọnụahịa na ọnụ ọgụgụ."
     },
     "getUpdates": {
-      "title": "Get SMS Updates",
-      "desc": "Receive instant SMS notifications for orders, inquiries, and price updates."
+      "title": "Nweta Mgbasa Ozi SMS",
+      "desc": "Nata ozi SMS ozugbo maka iwu, ajụjụ, na mmelite ọnụahịa."
     }
   },
   "problem": {
-    "kicker": "The Problem",
-    "title": "Farmers Are Losing Money Every Day",
+    "kicker": "Nsogbu",
+    "title": "Ụmụazụ ugbo na-efufu ego kwa ụbọchị",
     "card1": {
-      "title": "Post-Harvest Losses",
-      "desc": "30-40% of produce goes to waste due to lack of market access and poor storage facilities."
+      "title": "Nfu nke Mgbe E Wupụtara Ọka",
+      "desc": "Pasent 30-40 nke ihe a na-emepụta na-apụ n'efu n'ihi enweghị ohere ahịa na ihe nchekwa ezughị oke."
     },
     "card2": {
-      "title": "Middlemen Exploitation",
-      "desc": "Farmers receive only a fraction of the final selling price while middlemen take the majority."
+      "title": "Ịgwọ nke ndị n’azụ ahịa",
+      "desc": "Ụmụ ahịa na-enweta naanị akụkụ nke ọnụahịa ikpeazụ ịre ere ebe ndị n'etiti na-ejide nnukwu nke ahụ."
     },
     "card3": {
-      "title": "No Market Information",
-      "desc": "Lack of real-time pricing data leaves farmers vulnerable to unfair negotiations."
+      "title": "Enweghị Ozi Ahịa",
+      "desc": "Enweghị data ọnụahịa n'oge a na-eme ka ndị akụ na ụba bụrụ ndị dị mfe n'ọgụ ahịa na-adịghị mma."
     },
     "card4": {
-      "title": "Climate Change",
-      "desc": "Unpredictable rain and sudden droughts mean traditional planting seasons are a gamble, leading to total crop failure."
+      "title": "Mgbanwe Ọdịdị Ọnọdụ Eluigwe na Ala",
+      "desc": "Mmiri na-adịghị akụ na ụba na oke okechi na-apụta n’ụzọ na-amaghị ama pụtara na oge ịgụ ọka ọdịnala bụ egwuregwu kpara akpa, nke na-eduga na ọdịda nri niile."
     },
     "card5": {
-      "title": "Pests & Crop Disease",
-      "desc": "A new pest or disease can wipe out an entire farm in 48 hours, with no expert to ask for help."
+      "title": "Ibe anụmanụ na ọrịa mkpụrụ osisi",
+      "desc": "Ọgwụgwụ ọhụụ ma ọ bụ ọrịa nwekwara ike ịkpụcha ugbo niile n'ime awa 48, enweghị ọkachamara ịjụ maka enyemaka."
     }
   },
   "solution": {
-    "kicker": "Our Solution",
-    "title": "Direct Market Access & AI Co-Pilot",
+    "kicker": "Ngwọta Anyị",
+    "title": "Nweta Ahịa N'ụzọ Kwụ Ọtọ & Onye Nzọpụta AI",
     "card1": {
-      "title": "Direct Connections",
-      "desc": "Connect farmers directly with buyers, eliminating middlemen and ensuring fair prices for both parties."
+      "title": "Njikọ Kwụ Ọtọ",
+      "desc": "jikọọ ndị ọrụ ugbo ozugbo na ndị na-azụ ha, wepụ ndị n'etiti ma mee ka ọnụahịa dị mma maka ma akụkụ abụọ ahụ."
     },
     "card2": {
-      "title": "Transparent Pricing",
-      "desc": "Real-time market prices visible to all users, ensuring fair negotiations and informed decisions."
+      "title": "Ịzụ ahịa nke doro anya",
+      "desc": "Ego ahịa n’oge ndị a na-ahụ anya nye ndị ọrụ niile, na-eme ka nkwurịta okwu dị mma na mkpebi amamihe."
     },
     "card3": {
-      "title": "SMS Notifications",
-      "desc": "Instant SMS alerts for new orders, price updates, and buyer inquiries - no internet required."
+      "title": "Nkwupụta SMS",
+      "desc": "Mgbaàmà SMS ozugbo maka iwu ọhụrụ, mmelite ọnụahịa, na ajụjụ ndị na-azụ ahịa - enweghị mkpa ịntanetị."
     },
     "card4": {
-      "title": "AI Planting Advisor",
-      "desc": "Our co-pilot analyzes climate data and forecasts to tell you the *exact optimal week* to plant your crops."
+      "title": "Onye Nduzi Ịkụ Mmiri Mmụta AI",
+      "desc": "Onye enyemaka ụgbọ elu anyị na-enyocha data ihu igwe na amụma iji gwa gị *izu kacha mma* iji kọọ mkpụrụ gị."
     },
     "card5": {
-      "title": "Instant Disease Scanner",
-      "desc": "Just take a picture of a sick leaf, and our AI will instantly identify the disease and give you low-cost treatment options."
+      "title": "Ngwa Nyocha Ọrịa Ozugbo",
+      "desc": "Naanị were foto nke akwukwo na-arịa ọrịa, ma AI anyị ga-achọpụta ọrịa ahụ ozugbo ma nye gị nhọrọ ọgwụgwọ dị ọnụ ala."
     }
   }
 }

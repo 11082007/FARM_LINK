@@ -1,111 +1,111 @@
 {
   "hero": {
-    "title": "Connecting Farmers Directly to Buyers",
-    "subtitle": "No middlemen. No post-harvest loss. Just fair prices and fresh produce."
+    "title": "Connecter les agriculteurs directement aux acheteurs",
+    "subtitle": "Pas d'intermédiaires. Pas de perte après récolte. Juste des prix équitables et des produits frais."
   },
   "buttons": {
-    "startAsFarmer": "Start as a Farmer",
-    "startAsBuyer": "Start as a Buyer"
+    "startAsFarmer": "Commencez en tant qu'agriculteur",
+    "startAsBuyer": "Commencer en tant qu'acheteur"
   },
   "features": {
-    "title": "Everything You Need to Trade Successfully",
-    "subtitle": "Built specifically for African farmers and buyers, with features that work even in low-connectivity areas.",
+    "title": "Tout ce qu'il faut pour trader avec succès",
+    "subtitle": "Conçu spécifiquement pour les agriculteurs et acheteurs africains, avec des fonctionnalités qui fonctionnent même dans les zones à faible connectivité.",
     "smartSearch": {
-      "title": "Smart Search & Filters",
-      "desc": "Find exactly what you need with advanced search by produce type, location, quantity, and price range."
+      "title": "Recherche intelligente et filtres",
+      "desc": "Trouvez exactement ce dont vous avez besoin grâce à une recherche avancée par type de produit, localisation, quantité et fourchette de prix."
     },
     "escrow": {
-      "title": "Smart Contract Escrow",
-      "desc": "Funds are held in a secure smart contract and only released when you verify the produce."
+      "title": "Contrat intelligent en séquestre",
+      "desc": "Les fonds sont conservés dans un contrat intelligent sécurisé et ne sont libérés que lorsque vous vérifiez le produit."
     },
     "locationMatching": {
-      "title": "Location-Based Matching",
-      "desc": "Connect with farmers and buyers in your area to reduce transportation costs and ensure freshness."
+      "title": "Appariement basé sur la localisation",
+      "desc": "Connectez-vous avec des agriculteurs et des acheteurs de votre région pour réduire les coûts de transport et garantir la fraîcheur."
     },
     "smsAlerts": {
-      "title": "Real-Time SMS Alerts",
-      "desc": "Get instant notifications for new orders, price changes, and buyer inquiries directly to your phone."
+      "title": "Alertes SMS en temps réel",
+      "desc": "Recevez des notifications instantanées pour les nouvelles commandes, les changements de prix et les demandes des acheteurs directement sur votre téléphone."
     },
     "priceTransparency": {
-      "title": "Market Price Transparency",
-      "desc": "Access real-time market prices to make informed decisions and negotiate fair deals."
+      "title": "Transparence des prix du marché",
+      "desc": "Accédez aux prix du marché en temps réel pour prendre des décisions éclairées et négocier des accords équitables."
     },
     "verifiedUsers": {
-      "title": "Verified Users",
-      "desc": "Trade with confidence knowing all users are verified for authenticity and reliability."
+      "title": "Utilisateurs vérifiés",
+      "desc": "Commercez en toute confiance en sachant que tous les utilisateurs sont vérifiés pour leur authenticité et leur fiabilité."
     },
     "mobileFirst": {
-      "title": "Mobile-First Design",
-      "desc": "Access the platform from any device, optimized for mobile users with limited connectivity."
+      "title": "Conception mobile en priorité",
+      "desc": "Accédez à la plateforme depuis n'importe quel appareil, optimisée pour les utilisateurs mobiles avec une connectivité limitée."
     }
   },
   "howItWorks": {
-    "title": "How FarmLink Works",
-    "subtitle": "Simple, straightforward, and designed for everyone - from tech-savvy buyers to farmers with basic phones.",
-    "step": "Step {{count}}",
+    "title": "Comment fonctionne FarmLink",
+    "subtitle": "Simple, clair et conçu pour tout le monde - des acheteurs férus de technologie aux agriculteurs avec des téléphones basiques.",
+    "step": "Étape {{count}}",
     "createAccount": {
-      "title": "Create Your Account",
-      "desc": "Sign up as a farmer or buyer in minutes. Verify your identity to start trading."
+      "title": "Créez votre compte",
+      "desc": "Inscrivez-vous en tant qu'agriculteur ou acheteur en quelques minutes. Vérifiez votre identité pour commencer à commercer."
     },
     "listProduce": {
-      "title": "List or Browse Produce",
-      "desc": "Farmers post their available produce. Buyers search and filter to find what they need."
+      "title": "Lister ou Parcourir les Produits",
+      "desc": "Les agriculteurs publient leurs produits disponibles. Les acheteurs recherchent et filtrent pour trouver ce dont ils ont besoin."
     },
     "connect": {
-      "title": "Connect & Negotiate",
-      "desc": "Contact each other directly through the platform. Negotiate prices and quantities."
+      "title": "Se connecter et négocier",
+      "desc": "Contactez-vous directement via la plateforme. Négociez les prix et les quantités."
     },
     "getUpdates": {
-      "title": "Get SMS Updates",
-      "desc": "Receive instant SMS notifications for orders, inquiries, and price updates."
+      "title": "Recevoir des mises à jour par SMS",
+      "desc": "Recevez des notifications SMS instantanées pour les commandes, les demandes et les mises à jour de prix."
     }
   },
   "problem": {
-    "kicker": "The Problem",
-    "title": "Farmers Are Losing Money Every Day",
+    "kicker": "Le problème",
+    "title": "Les agriculteurs perdent de l'argent chaque jour",
     "card1": {
-      "title": "Post-Harvest Losses",
-      "desc": "30-40% of produce goes to waste due to lack of market access and poor storage facilities."
+      "title": "Pertes après récolte",
+      "desc": "30 à 40 % des produits sont gaspillés en raison du manque d'accès au marché et de mauvaises installations de stockage."
     },
     "card2": {
-      "title": "Middlemen Exploitation",
-      "desc": "Farmers receive only a fraction of the final selling price while middlemen take the majority."
+      "title": "Exploitation par des intermédiaires",
+      "desc": "Les agriculteurs ne reçoivent qu'une fraction du prix de vente final tandis que les intermédiaires s'approprient la majorité."
     },
     "card3": {
-      "title": "No Market Information",
-      "desc": "Lack of real-time pricing data leaves farmers vulnerable to unfair negotiations."
+      "title": "Aucune information sur le marché",
+      "desc": "Le manque de données sur les prix en temps réel laisse les agriculteurs vulnérables à des négociations injustes."
     },
     "card4": {
-      "title": "Climate Change",
-      "desc": "Unpredictable rain and sudden droughts mean traditional planting seasons are a gamble, leading to total crop failure."
+      "title": "Changement climatique",
+      "desc": "Les pluies imprévisibles et les sécheresses soudaines font que les saisons de plantation traditionnelles sont un pari, entraînant des pertes totales de récolte."
     },
     "card5": {
-      "title": "Pests & Crop Disease",
-      "desc": "A new pest or disease can wipe out an entire farm in 48 hours, with no expert to ask for help."
+      "title": "Nuisibles et maladies des cultures",
+      "desc": "Un nouveau parasite ou maladie peut anéantir une ferme entière en 48 heures, sans aucun expert vers qui demander de l'aide."
     }
   },
   "solution": {
-    "kicker": "Our Solution",
-    "title": "Direct Market Access & AI Co-Pilot",
+    "kicker": "Notre Solution",
+    "title": "Accès Direct au Marché & Co-Pilote IA",
     "card1": {
-      "title": "Direct Connections",
-      "desc": "Connect farmers directly with buyers, eliminating middlemen and ensuring fair prices for both parties."
+      "title": "Connexions directes",
+      "desc": "Connecter directement les agriculteurs aux acheteurs, en éliminant les intermédiaires et en garantissant des prix équitables pour les deux parties."
     },
     "card2": {
-      "title": "Transparent Pricing",
-      "desc": "Real-time market prices visible to all users, ensuring fair negotiations and informed decisions."
+      "title": "Tarification transparente",
+      "desc": "Prix du marché en temps réel visibles par tous les utilisateurs, garantissant des négociations équitables et des décisions éclairées."
     },
     "card3": {
-      "title": "SMS Notifications",
-      "desc": "Instant SMS alerts for new orders, price updates, and buyer inquiries - no internet required."
+      "title": "Notifications SMS",
+      "desc": "Alertes SMS instantanées pour les nouvelles commandes, les mises à jour des prix et les demandes des acheteurs - pas besoin d'internet."
     },
     "card4": {
-      "title": "AI Planting Advisor",
-      "desc": "Our co-pilot analyzes climate data and forecasts to tell you the *exact optimal week* to plant your crops."
+      "title": "Conseiller en plantation IA",
+      "desc": "Notre copilote analyse les données et prévisions climatiques pour vous indiquer la *semaine optimale exacte* pour planter vos cultures."
     },
     "card5": {
-      "title": "Instant Disease Scanner",
-      "desc": "Just take a picture of a sick leaf, and our AI will instantly identify the disease and give you low-cost treatment options."
+      "title": "Scanner de maladies instantané",
+      "desc": "Il vous suffit de prendre en photo une feuille malade, et notre IA identifiera instantanément la maladie et vous proposera des options de traitement à faible coût."
     }
   }
 }
