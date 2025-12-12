@@ -60,7 +60,7 @@ export default function RegisterPage() {
       if( userType === "farmer") {
         navigate("/farmer/dashboard");
       } else {
-        navigate("/buyer/browse");
+        navigate("/browse");
       }
     } catch (error) {
       console.log("Registration failed:", error);

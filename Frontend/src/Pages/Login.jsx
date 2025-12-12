@@ -20,6 +20,7 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     // const simulatedApiResponse = {
     //   user: {
     //     id: "123",
@@ -33,6 +34,7 @@ export default function LoginPage() {
     // login(simulatedApiResponse);
 
     try {
+<<<<<<< HEAD
       // Use Supabase to sign in with email and password
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
@@ -69,6 +71,24 @@ export default function LoginPage() {
   };
 
 
+=======
+      const userData = await loginUser(email, password);
+
+      // Store user + token in global context
+      login(userData);
+
+      // Redirect based on role
+      if (userData.user.role === "farmer") {
+        navigate("/farmer-dashboard");
+      } else {
+        navigate("/buyer-dashboard");
+      }
+    } catch (error) {
+      console.log("Login failed:", error);
+      alert("Login failed. Please check your credentials and try again.");
+    }
+  };
+>>>>>>> 4ccd5696d0ed1f93615073746c4265a8803e9c4d
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">
       <Card className="w-full max-w-md p-8 shadow-2xl">
@@ -167,4 +187,7 @@ export default function LoginPage() {
     </div>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ccd5696d0ed1f93615073746c4265a8803e9c4d

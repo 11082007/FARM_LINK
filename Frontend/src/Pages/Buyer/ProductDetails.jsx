@@ -1,6 +1,10 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { getProduceListings } from "../../Services/api";
+=======
+import {  getProduceListings } from "../../Services/api";
+>>>>>>> 4ccd5696d0ed1f93615073746c4265a8803e9c4d
 import { MapPin, Package, ShoppingCart, Zap, ArrowLeft, CheckCircle, XCircle } from "lucide-react";
 import { useCart } from "../../Context/CartContext";
 import OrderModal from "../../Components/Order";

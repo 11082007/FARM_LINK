@@ -94,7 +94,7 @@ const customLoginValidation = [
   }
 ];
 
-// POST /api/auth/login
+/*// POST /api/auth/login
 router.post('/login', customLoginValidation, async (req, res) => {
   try {
     // Get email from either field (frontend might send 'email' or 'emailAddress')
@@ -194,6 +194,218 @@ router.post('/login', customLoginValidation, async (req, res) => {
       message: 'Error during login', 
       error: process.env.NODE_ENV === 'development' ? error.message : undefined 
     });
+  }
+});*/
+
+// POST /api/auth/login - SIMPLIFIED WORKING VERSION
+router.post('/login', async (req, res) => {
+  try {
+    console.log('=== LOGIN REQUEST ===');
+    
+    // Accept both field names
+    const email = req.body.emailAddress || req.body.email;
+    const { password } = req.body;
+    
+    console.log('Attempting login for:', email);
+    
+    if (!email || !password) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Email and password are required' 
+      });
+    }
+    
+    // Find user
+    const user = await db.User.findOne({ 
+      where: { emailAddress: email } 
+    });
+    
+    if (!user) {
+      console.log('User not found:', email);
+      return res.status(401).json({ 
+        success: false, 
+        message: 'Invalid email or password' 
+      });
+    }
+    
+    console.log('User found. Checking password...');
+    console.log('Stored hash:', user.password_hash ? 'Present' : 'Missing');
+    
+    // CRITICAL: Use bcrypt.compare directly
+    if (!user.password_hash) {
+      console.log('ERROR: No password hash stored');
+      return res.status(401).json({ 
+        success: false, 
+        message: 'Invalid email or password' 
+      });
+    }
+    
+    // Compare passwords
+    const isValidPassword = await bcrypt.compare(password, user.password_hash);
+    
+    console.log('Password comparison result:', isValidPassword);
+    
+    if (!isValidPassword) {
+      // Debug info
+      console.log('Password mismatch details:');
+      console.log('Provided password:', password);
+      console.log('Hash prefix (stored):', user.password_hash.substring(0, 30));
+      
+      // Hash the provided password to debug
+      const testHash = await bcrypt.hash(password, 10);
+      console.log('Hash prefix (new):', testHash.substring(0, 30));
+      
+      return res.status(401).json({ 
+        success: false, 
+        message: 'Invalid email or password' 
+      });
+    }
+    
+    // Generate token
+    const token = generateToken(user);
+    
+    // Prepare response
+    const userResponse = {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      emailAddress: user.emailAddress,
+      phoneNumber: user.phoneNumber,
+      userType: user.userType,
+      location: user.location,
+      createdAt: user.createdAt,
+      walletAddress: user.walletAddress || null
+    };
+    
+    // Add farm if farmer
+    if (user.userType === 'farmer') {
+      const farm = await db.Farm.findOne({ 
+        where: { userId: user.id } 
+      });
+      if (farm) {
+        userResponse.farm = {
+          id: farm.id,
+          name: farm.name,
+          location: farm.location
+        };
+      }
+    }
+    
+    console.log('Login successful for:', user.emailAddress);
+    
+    res.json({
+      success: true,
+      message: 'Login successful',
+      token,
+      user: userResponse
+    });
+    
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error during login',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+});
+
+// POST /api/auth/reset-password - Reset password for testing
+router.post('/reset-password', async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
+    
+    if (!email || !newPassword) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Email and new password required' 
+      });
+    }
+    
+    const user = await db.User.findOne({ where: { emailAddress: email } });
+    
+    if (!user) {
+      return res.status(404).json({ 
+        success: false, 
+        message: 'User not found' 
+      });
+    }
+    
+    // Hash the new password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    
+    // Update user
+    user.password_hash = hashedPassword;
+    await user.save();
+    
+    console.log('Password reset for:', email);
+    console.log('New hash:', hashedPassword.substring(0, 30) + '...');
+    
+    res.json({
+      success: true,
+      message: 'Password reset successfully',
+      email: email,
+      testLogin: {
+        email: email,
+        password: newPassword
+      }
+    });
+    
+  } catch (error) {
+    console.error('Reset password error:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error resetting password' 
+    });
+  }
+});
+
+// DEBUG: Check user's actual stored data
+router.post('/debug-user', async (req, res) => {
+  try {
+    const { email } = req.body;
+    
+    if (!email) {
+      return res.status(400).json({ error: 'Email required' });
+    }
+    
+    // Get user with raw query to see exact data
+    const [users] = await db.sequelize.query(
+      `SELECT id, emailAddress, password_hash, firstName, lastName 
+       FROM Users 
+       WHERE emailAddress = ? 
+       LIMIT 1`,
+      { replacements: [email] }
+    );
+    
+    if (users.length === 0) {
+      return res.json({ 
+        success: false, 
+        message: 'User not found',
+        email: email 
+      });
+    }
+    
+    const user = users[0];
+    
+    res.json({
+      success: true,
+      user: {
+        id: user.id,
+        email: user.emailAddress,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        password_hash_exists: !!user.password_hash,
+        password_hash_length: user.password_hash?.length || 0,
+        password_hash_sample: user.password_hash ? 
+          user.password_hash.substring(0, 20) + '...' : 'No hash',
+        password_hash_type: typeof user.password_hash
+      }
+    });
+    
+  } catch (error) {
+    res.json({ error: error.message });
   }
 });
 
