@@ -23,7 +23,6 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      // Option 1: Use hardcoded credentials for demo purposes
       const hardcodedCredentials = [
         {
           email: "farmer@farmlink.com",
@@ -40,49 +39,34 @@ export default function LoginPage() {
       const trimmedEmail = email.trim();
       const trimmedPassword = password.trim();
 
-      // Check hardcoded credentials first
       const user = hardcodedCredentials.find(
         (u) => u.email === trimmedEmail && u.password === trimmedPassword
       );
 
-      if (user) {
-        // Simulate API response for hardcoded users
-        const simulatedApiResponse = {
-          user: {
-            id: "123",
-            name: user.role === "farmer" ? "Demo Farmer" : "Demo Buyer",
-            email: trimmedEmail,
-            role: user.role,
-          },
-          token: "fake-jwt-token",
-        };
-        
-        login(simulatedApiResponse);
-        navigate("/dashboard");
+      console.log("Matching user:", user);
+
+      if (!user) {
+        alert("Invalid email or password.");
         return;
       }
 
-      // Option 2: Use Supabase authentication (if needed)
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: trimmedEmail,
-        password: trimmedPassword,
-      });
-
-      if (error) {
-        throw error;
-      }
-
-      if (data.user) {
-        // Option 3: Use your custom API service
-        const apiResponse = await loginUser({
+      const simulatedApiResponse = {
+        user: {
+          id: "123",
+          name: user.role === "farmer" ? "Demo Farmer" : "Demo Buyer",
           email: trimmedEmail,
-          password: trimmedPassword,
-        });
-        
-        login(apiResponse);
-        navigate("/dashboard");
-      }
+          role: user.role,
+        },
+        token: "fake-jwt-token",
+      };
 
+      login(simulatedApiResponse);
+
+      if (user.role === "farmer") {
+        navigate("/farmer/dashboard");
+      } else {
+        navigate("/buyer-dashboard");
+      }
     } catch (err) {
       console.error('Login error:', err);
       alert('Login failed: ' + (err.message || 'Invalid credentials'));
