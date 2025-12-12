@@ -16,91 +16,80 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    setIsLoading(true);
 
-  try {
-    // 1. Use Supabase to sign in
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password
-    });
-
-    if (error) throw error;
-
-    console.log('✅ Supabase login successful:', data.user.email);
-
-    // 2. Get user profile from your users table
-    let userProfile = null;
     try {
-      const { data: profileData, error: profileError } = await supabase
-        .from('users')
-        .select('*')
-        .eq('id', data.user.id)
-        .single();
-      
-      if (profileError) {
-        console.warn('⚠️ Profile fetch error:', profileError);
-        // Create profile if it doesn't exist
-        const { data: newProfile } = await supabase
-          .from('users')
-          .insert({
-            id: data.user.id,
-            email: data.user.email,
-            first_name: data.user.user_metadata?.first_name || '',
-            last_name: data.user.user_metadata?.last_name || '',
-            role: data.user.user_metadata?.role || 'buyer'
-          })
-          .select()
-          .single();
+      // Option 1: Use hardcoded credentials for demo purposes
+      const hardcodedCredentials = [
+        {
+          email: "farmer@farmlink.com",
+          password: "farmerpassword",
+          role: "farmer",
+        },
+        {
+          email: "buyer@farmlink.com",
+          password: "buyerpassword",
+          role: "buyer",
+        },
+      ];
+
+      const trimmedEmail = email.trim();
+      const trimmedPassword = password.trim();
+
+      // Check hardcoded credentials first
+      const user = hardcodedCredentials.find(
+        (u) => u.email === trimmedEmail && u.password === trimmedPassword
+      );
+
+      if (user) {
+        // Simulate API response for hardcoded users
+        const simulatedApiResponse = {
+          user: {
+            id: "123",
+            name: user.role === "farmer" ? "Demo Farmer" : "Demo Buyer",
+            email: trimmedEmail,
+            role: user.role,
+          },
+          token: "fake-jwt-token",
+        };
         
-        userProfile = newProfile;
-      } else {
-        userProfile = profileData;
+        login(simulatedApiResponse);
+        navigate("/dashboard");
+        return;
       }
-    } catch (profileErr) {
-      console.error('Profile handling error:', profileErr);
-      // Create basic profile from session
-      userProfile = {
-        id: data.user.id,
-        email: data.user.email,
-        first_name: data.user.user_metadata?.first_name || '',
-        last_name: data.user.user_metadata?.last_name || '',
-        role: data.user.user_metadata?.role || 'buyer'
-      };
+
+      // Option 2: Use Supabase authentication (if needed)
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: trimmedEmail,
+        password: trimmedPassword,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data.user) {
+        // Option 3: Use your custom API service
+        const apiResponse = await loginUser({
+          email: trimmedEmail,
+          password: trimmedPassword,
+        });
+        
+        login(apiResponse);
+        navigate("/dashboard");
+      }
+
+    } catch (err) {
+      console.error('Login error:', err);
+      alert('Login failed: ' + (err.message || 'Invalid credentials'));
+    } finally {
+      setIsLoading(false);
     }
-
-    console.log('📋 User profile retrieved:', userProfile);
-
-    // 3. ✅ CRITICAL: Call your AuthContext login function
-    login({
-      user: data.user,          // Supabase auth user
-      profile: userProfile,     // Your custom profile
-      session: data.session     // Supabase session
-    });
-
-    console.log('🎯 AuthContext login called successfully');
-
-    // 4. Redirect to dashboard
-    setTimeout(() => {
-      // Navigate based on role if you want
-      const role = userProfile?.role || data.user.user_metadata?.role;
-      if (role === 'farmer') {
-        navigate('/farmer/dashboard');
-      } else {
-        navigate('/buyer-dashboard');
-      }
-    }, 500);
-
-  } catch (err) {
-    console.error('❌ Login error:', err);
-    alert('Login failed: ' + err.message);
-  } finally {
-    setEmail('');
-    setPassword('');
-  }
-};
+  };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">
@@ -131,6 +120,7 @@ export default function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={isLoading}
           />
 
           <Input
@@ -143,6 +133,7 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={isLoading}
           />
 
           <div className="flex items-center justify-between text-sm">
@@ -150,6 +141,7 @@ export default function LoginPage() {
               <input
                 type="checkbox"
                 className="rounded border-border text-primary focus:ring-primary"
+                disabled={isLoading}
               />
               <span className="text-muted-foreground">
                 {t("login.rememberMe")}
@@ -165,10 +157,13 @@ export default function LoginPage() {
 
           <Button
             type="submit"
-            btnClassName="group flex w-full h-12 items-center justify-center gap-2 rounded-xl text-base font-medium text-white shadow-lg transition-all bg-primary hover:bg-primary-dark"
+            btnClassName="group flex w-full h-12 items-center justify-center gap-2 rounded-xl text-base font-medium text-white shadow-lg transition-all bg-primary hover:bg-primary-dark disabled:opacity-50"
+            disabled={isLoading}
           >
-            {t("login.button")}
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            {isLoading ? t("login.loading") : t("login.button")}
+            {!isLoading && (
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            )}
           </Button>
         </form>
 
@@ -200,4 +195,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
