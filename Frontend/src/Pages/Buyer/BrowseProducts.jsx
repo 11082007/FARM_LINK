@@ -38,43 +38,90 @@ const BrowseProducts = () => {
   // -------------------------------------------------------
   // FETCH PRODUCE LISTINGS
   // -------------------------------------------------------
-  useEffect(() => {
-    let isMounted = true;
+  // -------------------------------------------------------
+// FETCH PRODUCE LISTINGS
+// -------------------------------------------------------
+useEffect(() => {
+  let isMounted = true;
 
-    const fetchListings = async () => {
-      try {
-        setLoading(true);
-        const response = await getProduceListings();
+  const fetchListings = async () => {
+    try {
+      setLoading(true);
+      const response = await getProduceListings();
 
-        if (isMounted) {
-          setListings(Array.isArray(response) ? response : response.data || []);
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError("Failed to load listings. Please try again.");
-          console.error("Error loading listings:", err);
-        }
-      } finally {
-        if (isMounted) setLoading(false);
+      if (isMounted) {
+        console.log("Raw API Response:", response);
+        
+        // Transform Supabase data to match ProductCard expectations
+        const transformedListings = (Array.isArray(response) ? response : response.data || []).map(item => {
+          console.log("Processing item:", item);
+          console.log("Item images:", item.images);
+          console.log("First image:", item.images?.[0]);
+          
+          // Helper function to get image URL
+          const getImageUrl = (item) => {
+            // If item has images array with content, use first image
+            if (item.images && Array.isArray(item.images) && item.images.length > 0) {
+              return item.images[0];
+            }
+            // If item has imageUrl field, use that
+            if (item.imageUrl) {
+              return item.imageUrl;
+            }
+            // Fallback: create placeholder
+            return `https://placehold.co/500x400/10b981/white?text=${encodeURIComponent(item.name || 'Product')}`;
+          };
+
+          return {
+            id: item.id,
+            name: item.name || 'Unnamed Product',
+            description: item.description || 'No description available',
+            price: item.price || 0,
+            quantityAvailable: item.quantity || 0,
+            location: item.location || 'Location not specified',
+            available: item.status === 'available',
+            isVerified: item.isVerified || false,
+            // FIXED: Get the first image from the array
+            imageUrl: getImageUrl(item),
+            rating: item.rating || 0,
+            category: item.category || 'Uncategorized',
+            // Keep the original images array for reference
+            images: item.images || []
+          };
+        });
+        
+        console.log("Transformed listings:", transformedListings);
+        setListings(transformedListings);
       }
-    };
+    } catch (err) {
+      if (isMounted) {
+        setError("Failed to load listings. Please try again.");
+        console.error("Error loading listings:", err);
+      }
+    } finally {
+      if (isMounted) setLoading(false);
+    }
+  };
 
-    fetchListings();
-    return () => { isMounted = false; };
-  }, []);
+  fetchListings();
+  return () => { isMounted = false; };
+}, []);
 
   // -------------------------------------------------------
-  // FILTER LOGIC
+  // FILTER LOGIC - UPDATED TO USE PRICE INSTEAD OF PRICEPERKG
   // -------------------------------------------------------
   const categories = [...new Set(listings.map(item => item.category))];
   const locations = [...new Set(listings.map(item => item.location))];
 
   const filteredListings = listings.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = item.name?.toLowerCase().includes(searchQuery.toLowerCase()) || false;
     const matchesCategory = !filters.category || item.category === filters.category;
     const matchesLocation = !filters.location || item.location === filters.location;
-    const matchesMinPrice = !filters.minPrice || item.pricePerKg >= Number(filters.minPrice);
-    const matchesMaxPrice = !filters.maxPrice || item.pricePerKg <= Number(filters.maxPrice);
+    
+    // Use item.price (from Supabase) instead of item.pricePerKg
+    const itemPrice = item.price || 0;
+    const matchesMinPrice = !filters.minPrice || itemPrice >= Number(filters.minPrice);
+    const matchesMaxPrice = !filters.maxPrice || itemPrice <= Number(filters.maxPrice);
 
     return matchesSearch && matchesCategory && matchesLocation && matchesMinPrice && matchesMaxPrice;
   });
@@ -232,7 +279,7 @@ const BrowseProducts = () => {
           filteredListings.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredListings.map(item => (
-                <ProductCard key={item.id || item._id} produce={item} />
+                <ProductCard key={item.id || item._id} product={item} />
               ))}
             </div>
           ) : (

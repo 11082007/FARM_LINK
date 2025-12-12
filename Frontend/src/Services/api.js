@@ -1,4 +1,5 @@
 import axios from "axios";
+import { supabase } from "../lib/supabase.js";
 
 /* ---------------------------------------------------------
    AXIOS INSTANCE (GLOBAL)
@@ -28,8 +29,22 @@ export const loginUser = async (email, password) => {
 
 
 export const getProduceListings = async () => {
-  const res = await api.get("/produce");
-  return res.data;
+  try {
+    const { data, error } = await supabase
+      .from('products')  // your table name
+      .select('*')       // select all columns or specify columns like 'id, name, price, image_url'
+      .order('created_at', { ascending: false }); // optional: order by creation date
+
+    if (error) {
+      console.error('Error fetching products:', error);
+      throw error;
+    }
+    console.log('Fetched products from Supabase:', data);
+    return data;
+  } catch (error) {
+    console.error('Error in getProduceListings:', error);
+    return []; // return empty array on error
+  }
 };
 
 export const getProduceById = async (id) => {

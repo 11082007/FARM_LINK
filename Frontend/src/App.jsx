@@ -83,6 +83,9 @@ import TransactionDetail from "./Pages/TransactionDetails";
 import UserDashboard from "./Pages/Buyer/Dashboard";
 import OrdersPage from "./Pages/Farmer/Orders";
 import BlockchainPageFarmer from "./Pages/Farmer/Blockchain";
+import ProductsPage from "./Pages/Farmer/ProductsPage";
+import WalletPage from "./Pages/Buyer/WalletPage";
+import AnalyticsPage from "./Pages/Farmer/Analytics";
 
 function App() {
   return (
@@ -110,9 +113,9 @@ function App() {
 
         <Route path="/farmer/dashboard" element={<Dashboard />} />
         <Route path="/farmer/orders" element={<OrdersPage />} />
-        
+        <Route path="/farmer/products" element={<ProductsPage />} />
         <Route path="/farmer/blockchain" element={<BlockchainPageFarmer />} />
-        <Route path="/farmer/analytics" element={<Inquires />} />
+        <Route path="/farmer/analytics" element={<AnalyticsPage />} />
 
       {/* Buyer Pages */}
       <Route
@@ -128,6 +131,7 @@ function App() {
       </Route>
       <Route path="/buyer-dashboard" element={<UserDashboard />} />
       <Route path="/blockchain-explorer" element={<BlockchainExplorer />} />
+      <Route path="/buyer/wallet" element={<WalletPage />} />
       <Route path="/paymenthome" element={<PaymentsHome />} />
       <Route path="/transaction/:hash" element={<TransactionDetail />} />
     </Routes>

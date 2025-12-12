@@ -1,26 +1,99 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import { getProduceListings } from "../../Services/api";
-=======
-import {  getProduceListings } from "../../Services/api";
->>>>>>> 4ccd5696d0ed1f93615073746c4265a8803e9c4d
-import { MapPin, Package, ShoppingCart, Zap, ArrowLeft, CheckCircle, XCircle } from "lucide-react";
+import { getProduceListings } from "../../Services/api.js";
+import { 
+  MapPin, 
+  Package, 
+  ShoppingCart, 
+  Zap, 
+  Star,
+  ArrowLeft, 
+  CheckCircle, 
+  XCircle, 
+  Lock 
+} from "lucide-react";
 import { useCart } from "../../Context/CartContext";
-import OrderModal from "../../Components/Order";
+import { useWeb3 } from "../../Context/Web3Context";
+import EscrowWizard from "../../Components/EscrowWizard.jsx"; // Make sure this path is correct
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const [isOrderModalOpen, setIsOrderModalOpen] = React.useState(false);
-  const [addedToCart, setAddedToCart] = React.useState(false);
+  const { walletAddress } = useWeb3(); // Add Web3 context
+  const [showEscrowModal, setShowEscrowModal] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const product = getProduceListings.find(
-    (item) => item.id === parseInt(productId)
-  );
+  // Fetch product details on component mount
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        setLoading(true);
+        const products = await getProduceListings();
+        
+        // Find the specific product
+        const foundProduct = Array.isArray(products) 
+          ? products.find(item => item.id === productId || item._id === productId)
+          : null;
 
-  if (!product) {
+        if (foundProduct) {
+          // Transform the product data to match expected structure
+          const transformedProduct = {
+            id: foundProduct.id || foundProduct._id,
+            name: foundProduct.name || "Unknown Product",
+            description: foundProduct.description || "No description available",
+            price: foundProduct.price || 0, // Use price instead of pricePerKg
+            pricePerKg: foundProduct.price || foundProduct.pricePerKg || 0,
+            quantityAvailable: foundProduct.quantity || foundProduct.quantityAvailable || 0,
+            location: foundProduct.location || "Location not specified",
+            available: foundProduct.status === 'available' || foundProduct.available !== false,
+            imageUrl: foundProduct.images || foundProduct.imageUrl || `https://placehold.co/600x400/10b981/white?text=${encodeURIComponent(foundProduct.name || 'Product')}`,
+            category: foundProduct.category || "Uncategorized",
+            farm_id: foundProduct.farm_id || null, // Add farm_id for escrow
+            isVerified: foundProduct.isVerified || false,
+            rating: foundProduct.rating || 0
+          };
+          
+          setProduct(transformedProduct);
+        } else {
+          setError("Product not found");
+        }
+      } catch (err) {
+        console.error("Error fetching product:", err);
+        setError("Failed to load product details");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [productId]);
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 flex items-center justify-center p-6">
+        <div className="text-center">
+          <div className="relative mx-auto mb-4">
+            <div className="w-20 h-20 border-4 border-green-200 dark:border-green-900 rounded-full"></div>
+            <div className="absolute top-0 left-0 w-20 h-20 border-4 border-green-600 dark:border-green-400 rounded-full border-t-transparent animate-spin"></div>
+          </div>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+            Loading Product...
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400">
+            Please wait while we fetch the product details
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error || !product) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 flex items-center justify-center p-6">
         <div className="text-center">
@@ -31,7 +104,7 @@ const ProductDetails = () => {
             Product Not Found
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mb-6">
-            The product you're looking for doesn't exist or has been removed.
+            {error || "The product you're looking for doesn't exist or has been removed."}
           </p>
           <button
             onClick={() => navigate("/buyer")}
@@ -47,22 +120,32 @@ const ProductDetails = () => {
   const {
     name,
     category,
+    price,
     pricePerKg,
     quantityAvailable,
     location,
     available,
     imageUrl,
     description,
+    farm_id,
+    isVerified,
+    rating
   } = product;
 
-  const handleOrderNow = () => {
-    setIsOrderModalOpen(true);
+  const handleCreateEscrow = () => {
+    setShowEscrowModal(true);
   };
 
   const handleAddToCart = () => {
     addToCart(product);
     setAddedToCart(true);
     setTimeout(() => setAddedToCart(false), 2000);
+  };
+
+  const handleEscrowComplete = (escrow) => {
+    console.log("Escrow created:", escrow);
+    // Handle escrow completion (save to state, navigate, etc.)
+    setShowEscrowModal(false);
   };
 
   return (
@@ -89,7 +172,7 @@ const ProductDetails = () => {
                   alt={name}
                   className="w-full max-w-md h-[450px] object-cover rounded-2xl shadow-2xl"
                   onError={(e) => {
-                    e.target.src = `https://placehold.co/600x400/10b981/white?text=${name}`;
+                    e.target.src = `https://placehold.co/600x400/10b981/white?text=${encodeURIComponent(name)}`;
                   }}
                 />
                 
@@ -111,6 +194,14 @@ const ProductDetails = () => {
                     </span>
                   )}
                 </div>
+
+                {/* Verified Badge */}
+                {isVerified && (
+                  <div className="absolute top-4 left-4 px-4 py-2 bg-green-500 text-white rounded-full font-semibold text-sm shadow-lg flex items-center gap-1">
+                    <Shield size={16} />
+                    Verified
+                  </div>
+                )}
 
                 {/* Category Badge */}
                 <div className="absolute bottom-4 left-4 px-4 py-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-full shadow-lg">
@@ -138,7 +229,7 @@ const ProductDetails = () => {
                     Description
                   </h2>
                   <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {description || "Fresh, high-quality produce sourced directly from local farms. Perfect for your daily needs with guaranteed freshness and excellent taste."}
+                    {description}
                   </p>
                 </div>
 
@@ -168,6 +259,12 @@ const ProductDetails = () => {
                     <MapPin size={18} className="text-green-600 dark:text-green-400" />
                     <span className="font-medium">{location}</span>
                   </div>
+
+                  {/* Rating */}
+                  <div className="flex items-center gap-1 text-yellow-500 dark:text-yellow-400 mt-3">
+                    <Star size={16} className="fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">{rating || "No rating yet"}</span>
+                  </div>
                 </div>
               </div>
 
@@ -192,24 +289,33 @@ const ProductDetails = () => {
                     )}
                   </button>
 
+                  {/* Changed from Order Now to Confirm Escrow */}
                   <button
-                    onClick={handleOrderNow}
-                    disabled={!available}
+                    onClick={handleCreateEscrow}
+                    disabled={!available || !walletAddress}
                     className={`group relative py-4 rounded-xl font-semibold text-white transition-all duration-200 overflow-hidden ${
-                      available
+                      available && walletAddress
                         ? "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg hover:shadow-xl"
                         : "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
                     }`}
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      <Zap size={20} />
-                      Order Now
+                      <Lock size={20} />
+                      {walletAddress ? "Confirm Escrow" : "Connect Wallet"}
                     </span>
-                    {available && (
+                    {available && walletAddress && (
                       <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                     )}
                   </button>
                 </div>
+
+                {!walletAddress && available && (
+                  <div className="text-center py-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl">
+                    <p className="text-sm text-yellow-600 dark:text-yellow-400 font-medium">
+                      Connect your wallet to create a secure escrow
+                    </p>
+                  </div>
+                )}
 
                 {!available && (
                   <div className="text-center py-3 bg-red-50 dark:bg-red-900/20 rounded-xl">
@@ -229,9 +335,9 @@ const ProductDetails = () => {
             <div className="w-12 h-12 bg-green-100 dark:bg-green-900/20 rounded-xl flex items-center justify-center mb-4">
               <CheckCircle size={24} className="text-green-600 dark:text-green-400" />
             </div>
-            <h3 className="font-bold text-gray-900 dark:text-white mb-2">Quality Assured</h3>
+            <h3 className="font-bold text-gray-900 dark:text-white mb-2">Secure Escrow</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Fresh produce sourced directly from verified farms
+              Funds held securely until delivery is confirmed
             </p>
           </div>
 
@@ -257,10 +363,12 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      {isOrderModalOpen && (
-        <OrderModal
+      {/* Escrow Wizard Modal */}
+      {showEscrowModal && (
+        <EscrowWizard
           product={product}
-          onClose={() => setIsOrderModalOpen(false)}
+          onClose={() => setShowEscrowModal(false)}
+          onComplete={handleEscrowComplete}
         />
       )}
     </div>
@@ -268,3 +376,4 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+
