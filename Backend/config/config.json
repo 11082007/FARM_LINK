@@ -4,7 +4,8 @@
     "password": "Moi_nabi16",
     "database": "Farm_link",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": 3306
   },
   "test": {
     "username": "root",
@@ -14,11 +15,16 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "PMrYOSvzAvbZlrUzHFwssqvdXFyoOeWX",
-    "database": "railway",
-    "host": "mysql.railway.internal",
-    "port": 3306,
-    "dialect": "mysql"
+    "username": "process.env.MYSQLUSER",
+    "password": "process.env.MYSQLPASSWORD",
+    "database": "process.env.MYSQLDATABASE",
+    "host": "process.env.MYSQLHOST",
+    "port": "process.env.MYSQLPORT",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   }
 }

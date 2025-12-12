@@ -3,6 +3,16 @@ const cors = require('cors');
 const { sequelize, Op } = require('./models');
 require('dotenv').config();
 
+// CRITICAL FIX: Force production mode on Railway
+if (process.env.RAILWAY_ENVIRONMENT || process.env.MYSQLHOST) {
+  process.env.NODE_ENV = 'production';
+  console.log('Railway detected, forcing NODE_ENV=production');
+  console.log('MYSQLHOST:', process.env.MYSQLHOST || 'Not set');
+  console.log('MYSQLDATABASE:', process.env.MYSQLDATABASE || 'Not set');
+  console.log('MYSQLUSER:', process.env.MYSQLUSER || 'Not set');
+  console.log('MYSQLPORT:', process.env.MYSQLPORT || 'Not set');
+}
+
 const smsRoutes = require('./routes/smsRoutes.js');
 const productRoutes = require('./routes/productRoutes.js');
 const authRoutes = require('./routes/authRoutes.js');
@@ -12,16 +22,38 @@ const escrowRoutes = require('./routes/escrowRoutes.js');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Debug logging
-console.log("=== ENVIRONMENT DEBUG ===");
+// Check if running on Railway
+const isRailway = process.env.RAILWAY_ENVIRONMENT || process.env.RAILWAY_SERVICE_NAME;
+
+console.log("=== DEPLOYMENT ENVIRONMENT ===");
+if (isRailway) {
+  console.log('Running on Railway');
+  console.log('Environment:', process.env.RAILWAY_ENVIRONMENT);
+  console.log('Service Name:', process.env.RAILWAY_SERVICE_NAME);
+} else {
+  console.log('Running locally');
+}
 console.log("NODE_ENV:", process.env.NODE_ENV || 'development');
-console.log("PORT:", PORT);
-console.log("Database Config Check:");
-console.log("DB_HOST:", process.env.DB_HOST || process.env.MYSQLHOST || "Not set");
-console.log("DB_NAME:", process.env.DB_NAME || process.env.MYSQLDATABASE || "Not set");
-console.log("DB_USER:", process.env.DB_USER || process.env.MYSQLUSER || "Not set");
-console.log("DB_PORT:", process.env.DB_PORT || process.env.MYSQLPORT || 3306);
+console.log("==============================");
+
+// Enhanced debug logging for database connection
+console.log("=== DATABASE CONFIGURATION ===");
+console.log("Sequelize Config Host:", sequelize.config.host);
+console.log("Sequelize Config Port:", sequelize.config.port);
+console.log("Sequelize Config Database:", sequelize.config.database);
+console.log("Sequelize Config Username:", sequelize.config.username);
+
+// Show available environment variables
+console.log("\nEnvironment Variables:");
+console.log("DB_HOST:", process.env.DB_HOST || "Not set");
+console.log("DB_NAME:", process.env.DB_NAME || "Not set");
+console.log("DB_USER:", process.env.DB_USER || "Not set");
+console.log("DB_PORT:", process.env.DB_PORT || "Not set");
 console.log("DB_PASSWORD:", process.env.DB_PASSWORD ? "*** Set ***" : "Not set");
+console.log("MYSQLHOST:", process.env.MYSQLHOST || "Not set");
+console.log("MYSQLDATABASE:", process.env.MYSQLDATABASE || "Not set");
+console.log("MYSQLUSER:", process.env.MYSQLUSER || "Not set");
+console.log("MYSQLPORT:", process.env.MYSQLPORT || "Not set");
 console.log("MYSQLPASSWORD:", process.env.MYSQLPASSWORD ? "*** Set ***" : "Not set");
 console.log("==================================");
 
@@ -29,7 +61,7 @@ console.log("==================================");
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://your-frontend.railway.app',
+    'https://farmlink-production.up.railway.app', // Your Railway backend
     process.env.FRONTEND_URL
   ].filter(Boolean),
   credentials: true,
@@ -72,22 +104,40 @@ app.get("/", (req, res) => {
   });
 });
 
-// Health check route with DB connection test
+// Enhanced health check route with detailed DB info
 app.get("/check", async (req, res) => {
   try {
     await sequelize.authenticate();
     
+    // Get more detailed DB info
+    const [tables] = await sequelize.query('SHOW TABLES');
+    const [users] = await sequelize.query('SELECT COUNT(*) as count FROM Users');
+    
     res.status(200).json({ 
       message: "FarmLink Backend API is running",
       version: "1.0.0",
-      database: "Connected",
+      database: {
+        status: "Connected",
+        host: sequelize.config.host,
+        port: sequelize.config.port,
+        database: sequelize.config.database,
+        userCount: users[0].count,
+        tableCount: tables.length
+      },
       timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV || 'development'
+      environment: process.env.NODE_ENV || 'development',
+      railway: isRailway ? true : false
     });
   } catch (error) {
+    console.error("Health check database error:", error.message);
     res.status(500).json({ 
       message: "API is running but database connection failed",
       error: error.message,
+      databaseConfig: {
+        host: sequelize.config.host,
+        port: sequelize.config.port,
+        database: sequelize.config.database
+      },
       timestamp: new Date().toISOString()
     });
   }
@@ -101,8 +151,13 @@ app.get("/api/test-db", async (req, res) => {
       success: true, 
       message: 'Database connected successfully!',
       result: results[0].result,
-      database: sequelize.config.database,
-      host: sequelize.config.host
+      config: {
+        database: sequelize.config.database,
+        host: sequelize.config.host,
+        port: sequelize.config.port,
+        username: sequelize.config.username,
+        dialect: sequelize.config.dialect
+      }
     });
   } catch (error) {
     console.error("Database test error:", error);
@@ -112,7 +167,8 @@ app.get("/api/test-db", async (req, res) => {
       config: {
         database: sequelize.config.database,
         host: sequelize.config.host,
-        port: sequelize.config.port
+        port: sequelize.config.port,
+        username: sequelize.config.username
       }
     });
   }
@@ -271,6 +327,51 @@ app.get('/api/existing-users', async (req, res) => {
     res.status(500).json({ 
       error: 'Failed to fetch users',
       details: error.message
+    });
+  }
+});
+
+// ADDED: Debug route to check database dialect configuration
+app.get('/api/test-dialect', (req, res) => {
+  try {
+    // Get current environment
+    const env = process.env.NODE_ENV || 'development';
+    
+    // Load config directly
+    const dbConfig = require('./config/database.js');
+    const currentConfig = dbConfig[env];
+    
+    // Check Sequelize connection
+    const sequelizeConfig = {
+      host: sequelize.config.host,
+      port: sequelize.config.port,
+      database: sequelize.config.database,
+      username: sequelize.config.username,
+      dialect: sequelize.config.dialect,
+      dialectOptions: sequelize.config.dialectOptions
+    };
+    
+    res.json({
+      success: true,
+      environment: env,
+      databaseConfig: {
+        loadedFrom: 'database.js',
+        config: currentConfig,
+        hasDialect: !!currentConfig.dialect,
+        dialect: currentConfig.dialect
+      },
+      sequelizeActualConfig: sequelizeConfig,
+      modelsLoaded: Object.keys(sequelize.models),
+      connection: {
+        host: sequelize.config.host,
+        connected: sequelize.authenticate ? 'Yes' : 'No'
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+      stack: error.stack
     });
   }
 });
@@ -546,7 +647,7 @@ app.post('/api/fix-users-table', async (req, res) => {
   }
 });
 
-// ADDED: Route to reset a user's password for testing
+// Route to reset a user's password for testing
 app.post('/api/reset-test-password', async (req, res) => {
   try {
     const { email, newPassword } = req.body;
@@ -591,6 +692,7 @@ app.post('/api/reset-test-password', async (req, res) => {
     });
   }
 });
+
 // Add this route
 app.get('/api/deploy-info', (req, res) => {
   res.json({
@@ -631,10 +733,19 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Database sync and server start
+// Updated startServer function with better error handling
 async function startServer() {
   try {
+    console.log("=== STARTING SERVER ===");
     console.log("Attempting to connect to MySQL database...");
+    
+    // Debug: Show actual connection config
+    console.log("Database Config from Sequelize:");
+    console.log("- Host:", sequelize.config.host);
+    console.log("- Port:", sequelize.config.port);
+    console.log("- Database:", sequelize.config.database);
+    console.log("- Username:", sequelize.config.username);
+    console.log("- Dialect:", sequelize.config.dialect);
     
     // Authenticate database connection
     await sequelize.authenticate();
@@ -677,14 +788,50 @@ async function startServer() {
       console.log(`Update wallet: POST http://localhost:${PORT}/api/users/:id/wallet`);
       console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
       console.log("");
-      console.log("IMPORTANT: If login fails, check if Users table has data");
-      console.log("Run: curl -X POST http://localhost:3000/api/create-test-users");
-      console.log("Reset password: curl -X POST http://localhost:3000/api/reset-test-password");
+      
+      if (isRailway) {
+        console.log("RUNNING ON RAILWAY");
+        console.log(`Public URL: https://farmlink-production.up.railway.app`);
+        console.log("IMPORTANT: Database is empty, users need to be created");
+        console.log("Run setup: curl -X POST https://farmlink-production.up.railway.app/api/railway-setup");
+      } else {
+        console.log("RUNNING LOCALLY");
+        console.log("IMPORTANT: If login fails, check if Users table has data");
+        console.log("Run: curl -X POST http://localhost:3000/api/create-test-users");
+        console.log("Reset password: curl -X POST http://localhost:3000/api/reset-test-password");
+      }
     });
     
   } catch (error) {
-    console.error("Unable to start server:", error.message);
-    console.error("Full error:", error);
+    console.error("UNABLE TO START SERVER!");
+    console.error("Error:", error.message);
+    console.error("\nDEBUG INFORMATION:");
+    console.error("Sequelize Config:", {
+      host: sequelize.config.host,
+      port: sequelize.config.port,
+      database: sequelize.config.database,
+      username: sequelize.config.username,
+      dialect: sequelize.config.dialect
+    });
+    
+    console.error("\nTROUBLESHOOTING:");
+    if (isRailway) {
+      console.error("1. Check if MySQL service is linked to backend on Railway");
+      console.error("2. Check Railway Variables for MYSQL* environment variables");
+      console.error("3. Ensure NODE_ENV=production is set on Railway");
+      console.error("4. Check your config/config.json - it should use process.env for production");
+    } else {
+      console.error("1. Check if MySQL is running locally (mysql -u root -p)");
+      console.error("2. Verify database credentials in .env file");
+      console.error("3. Check if Farm_link database exists");
+    }
+    
+    console.error("\nCurrent Environment:");
+    console.error("NODE_ENV:", process.env.NODE_ENV);
+    console.error("RAILWAY_ENVIRONMENT:", process.env.RAILWAY_ENVIRONMENT || "Not set");
+    console.error("MYSQLHOST:", process.env.MYSQLHOST || "Not set");
+    console.error("MYSQLDATABASE:", process.env.MYSQLDATABASE || "Not set");
+    
     process.exit(1);
   }
 }
