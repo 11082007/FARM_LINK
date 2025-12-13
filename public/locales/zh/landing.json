@@ -1,111 +1,111 @@
 {
   "hero": {
-    "title": "Connecting Farmers Directly to Buyers",
-    "subtitle": "No middlemen. No post-harvest loss. Just fair prices and fresh produce."
+    "title": "将农民直接与买家连接",
+    "subtitle": "没有中间商。没有收获后的损失。只有公道的价格和新鲜的农产品。"
   },
   "buttons": {
-    "startAsFarmer": "Start as a Farmer",
-    "startAsBuyer": "Start as a Buyer"
+    "startAsFarmer": "从农民开始",
+    "startAsBuyer": "以买家身份开始"
   },
   "features": {
-    "title": "Everything You Need to Trade Successfully",
-    "subtitle": "Built specifically for African farmers and buyers, with features that work even in low-connectivity areas.",
+    "title": "成功交易所需的一切",
+    "subtitle": "专为非洲农民和买家打造，即使在网络连接差的地区也能使用的功能。",
     "smartSearch": {
-      "title": "Smart Search & Filters",
-      "desc": "Find exactly what you need with advanced search by produce type, location, quantity, and price range."
+      "title": "智能搜索与筛选",
+      "desc": "通过按产品类型、地点、数量和价格范围进行高级搜索，精确找到您需要的商品。"
     },
     "escrow": {
-      "title": "Smart Contract Escrow",
-      "desc": "Funds are held in a secure smart contract and only released when you verify the produce."
+      "title": "智能合约托管",
+      "desc": "资金会存放在安全的智能合约中，只有在您验证了产品后才会释放。"
     },
     "locationMatching": {
-      "title": "Location-Based Matching",
-      "desc": "Connect with farmers and buyers in your area to reduce transportation costs and ensure freshness."
+      "title": "基于位置的匹配",
+      "desc": "与您所在地区的农民和买家建立联系，以降低运输成本并确保新鲜度。"
     },
     "smsAlerts": {
-      "title": "Real-Time SMS Alerts",
-      "desc": "Get instant notifications for new orders, price changes, and buyer inquiries directly to your phone."
+      "title": "实时短信提醒",
+      "desc": "即时接收新订单、价格变动和买家咨询的通知，直接发送到您的手机。"
     },
     "priceTransparency": {
-      "title": "Market Price Transparency",
-      "desc": "Access real-time market prices to make informed decisions and negotiate fair deals."
+      "title": "市场价格透明度",
+      "desc": "获取实时市场价格，以做出明智决策并谈判公平交易。"
     },
     "verifiedUsers": {
-      "title": "Verified Users",
-      "desc": "Trade with confidence knowing all users are verified for authenticity and reliability."
+      "title": "已验证用户",
+      "desc": "放心交易，所有用户均经过真实性和可靠性验证。"
     },
     "mobileFirst": {
-      "title": "Mobile-First Design",
-      "desc": "Access the platform from any device, optimized for mobile users with limited connectivity."
+      "title": "移动优先设计",
+      "desc": "可以通过任何设备访问该平台，针对网络连接有限的移动用户进行了优化。"
     }
   },
   "howItWorks": {
-    "title": "How FarmLink Works",
-    "subtitle": "Simple, straightforward, and designed for everyone - from tech-savvy buyers to farmers with basic phones.",
-    "step": "Step {{count}}",
+    "title": "FarmLink 的工作原理",
+    "subtitle": "简单、直观，适合所有人——从精通科技的买家到使用普通手机的农民。",
+    "step": "步骤 {{count}}",
     "createAccount": {
-      "title": "Create Your Account",
-      "desc": "Sign up as a farmer or buyer in minutes. Verify your identity to start trading."
+      "title": "创建您的账户",
+      "desc": "几分钟内注册为农民或买家。验证身份即可开始交易。"
     },
     "listProduce": {
-      "title": "List or Browse Produce",
-      "desc": "Farmers post their available produce. Buyers search and filter to find what they need."
+      "title": "列出或浏览农产品",
+      "desc": "农民发布他们可供应的农产品。买家搜索并筛选以找到所需的商品。"
     },
     "connect": {
-      "title": "Connect & Negotiate",
-      "desc": "Contact each other directly through the platform. Negotiate prices and quantities."
+      "title": "连接与协商",
+      "desc": "通过平台直接联系彼此。协商价格和数量。"
     },
     "getUpdates": {
-      "title": "Get SMS Updates",
-      "desc": "Receive instant SMS notifications for orders, inquiries, and price updates."
+      "title": "获取短信更新",
+      "desc": "即时接收订单、咨询和价格更新的短信通知。"
     }
   },
   "problem": {
-    "kicker": "The Problem",
-    "title": "Farmers Are Losing Money Every Day",
+    "kicker": "问题",
+    "title": "农民每天都在亏钱",
     "card1": {
-      "title": "Post-Harvest Losses",
-      "desc": "30-40% of produce goes to waste due to lack of market access and poor storage facilities."
+      "title": "收获后损失",
+      "desc": "由于缺乏市场渠道和储存设施不完善，30-40%的农产品被浪费。"
     },
     "card2": {
-      "title": "Middlemen Exploitation",
-      "desc": "Farmers receive only a fraction of the final selling price while middlemen take the majority."
+      "title": "中间人剥削",
+      "desc": "农民只得到最终销售价格的一小部分，而中间商占据了大部分。"
     },
     "card3": {
-      "title": "No Market Information",
-      "desc": "Lack of real-time pricing data leaves farmers vulnerable to unfair negotiations."
+      "title": "无市场信息",
+      "desc": "缺乏实时价格数据使农民在谈判中处于不利地位。"
     },
     "card4": {
-      "title": "Climate Change",
-      "desc": "Unpredictable rain and sudden droughts mean traditional planting seasons are a gamble, leading to total crop failure."
+      "title": "气候变化",
+      "desc": "不可预测的降雨和突如其来的干旱意味着传统的种植季节变得不可靠，可能导致作物完全歉收。"
     },
     "card5": {
-      "title": "Pests & Crop Disease",
-      "desc": "A new pest or disease can wipe out an entire farm in 48 hours, with no expert to ask for help."
+      "title": "害虫与作物病害",
+      "desc": "一种新的害虫或疾病可能在48小时内毁掉整个农场，而没有专家可以寻求帮助。"
     }
   },
   "solution": {
-    "kicker": "Our Solution",
-    "title": "Direct Market Access & AI Co-Pilot",
+    "kicker": "我们的解决方案",
+    "title": "直通市场接入与 AI 助手",
     "card1": {
-      "title": "Direct Connections",
-      "desc": "Connect farmers directly with buyers, eliminating middlemen and ensuring fair prices for both parties."
+      "title": "直接连接",
+      "desc": "直接将农民与买家连接，消除中间商，确保双方都能获得公平的价格。"
     },
     "card2": {
-      "title": "Transparent Pricing",
-      "desc": "Real-time market prices visible to all users, ensuring fair negotiations and informed decisions."
+      "title": "透明定价",
+      "desc": "实时市场价格对所有用户可见，确保公平的谈判和明智的决策。"
     },
     "card3": {
-      "title": "SMS Notifications",
-      "desc": "Instant SMS alerts for new orders, price updates, and buyer inquiries - no internet required."
+      "title": "短信通知",
+      "desc": "即时短信提醒新订单、价格更新和买家咨询——无需网络。"
     },
     "card4": {
-      "title": "AI Planting Advisor",
-      "desc": "Our co-pilot analyzes climate data and forecasts to tell you the *exact optimal week* to plant your crops."
+      "title": "AI种植顾问",
+      "desc": "我们的副驾驶可以分析气候数据和天气预报，告诉你种植作物的*最佳确切周*。"
     },
     "card5": {
-      "title": "Instant Disease Scanner",
-      "desc": "Just take a picture of a sick leaf, and our AI will instantly identify the disease and give you low-cost treatment options."
+      "title": "即时疾病扫描器",
+      "desc": "只需拍下病叶的照片，我们的 AI 就能即时识别病害，并为你提供低成本的治疗方案。"
     }
   }
 }

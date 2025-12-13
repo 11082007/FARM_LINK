@@ -1,111 +1,111 @@
 {
   "hero": {
-    "title": "Connecting Farmers Directly to Buyers",
-    "subtitle": "No middlemen. No post-harvest loss. Just fair prices and fresh produce."
+    "title": "किसानों को सीधे खरीदारों से जोड़ना",
+    "subtitle": "कोई दलाल नहीं। फसल के बाद कोई नुकसान नहीं। केवल उचित दाम और ताजा उत्पाद।"
   },
   "buttons": {
-    "startAsFarmer": "Start as a Farmer",
-    "startAsBuyer": "Start as a Buyer"
+    "startAsFarmer": "किसान के रूप में शुरू करें",
+    "startAsBuyer": "एक खरीदार के रूप में शुरू करें"
   },
   "features": {
-    "title": "Everything You Need to Trade Successfully",
-    "subtitle": "Built specifically for African farmers and buyers, with features that work even in low-connectivity areas.",
+    "title": "सफलतापूर्वक ट्रेड करने के लिए आपको जो भी चाहिए",
+    "subtitle": "विशेष रूप से अफ्रीकी किसानों और खरीदारों के लिए बनाया गया, जिसमें ऐसे फीचर्स हैं जो कम कनेक्टिविटी वाले क्षेत्रों में भी काम करते हैं।",
     "smartSearch": {
-      "title": "Smart Search & Filters",
-      "desc": "Find exactly what you need with advanced search by produce type, location, quantity, and price range."
+      "title": "स्मार्ट खोज और फ़िल्टर",
+      "desc": "उत्पाद के प्रकार, स्थान, मात्रा और मूल्य सीमा के अनुसार उन्नत खोज के माध्यम से ठीक वही पाएँ जिसकी आपको आवश्यकता है।"
     },
     "escrow": {
-      "title": "Smart Contract Escrow",
-      "desc": "Funds are held in a secure smart contract and only released when you verify the produce."
+      "title": "स्मार्ट कॉन्ट्रैक्ट एस्क्रो",
+      "desc": "फंड्स एक सुरक्षित स्मार्ट कॉन्ट्रैक्ट में रखे जाते हैं और केवल तब ही जारी किए जाते हैं जब आप उत्पाद की जांच कर लें।"
     },
     "locationMatching": {
-      "title": "Location-Based Matching",
-      "desc": "Connect with farmers and buyers in your area to reduce transportation costs and ensure freshness."
+      "title": "स्थान-आधारित मिलान",
+      "desc": "अपने क्षेत्र के किसानों और खरीदारों से जुड़ें ताकि परिवहन लागत कम हो और ताजगी बनी रहे।"
     },
     "smsAlerts": {
-      "title": "Real-Time SMS Alerts",
-      "desc": "Get instant notifications for new orders, price changes, and buyer inquiries directly to your phone."
+      "title": "रीयल-टाइम एसएमएस अलर्ट",
+      "desc": "नए ऑर्डर्स, कीमतों में बदलाव और खरीदार की पूछताछ के लिए तुरंत सूचनाएं सीधे अपने फोन पर प्राप्त करें।"
     },
     "priceTransparency": {
-      "title": "Market Price Transparency",
-      "desc": "Access real-time market prices to make informed decisions and negotiate fair deals."
+      "title": "बाज़ार मूल्य पारदर्शिता",
+      "desc": "सुनिश्चित निर्णय लेने और निष्पक्ष सौदे करने के लिए वास्तविक समय के बाजार मूल्य तक पहुंच प्राप्त करें।"
     },
     "verifiedUsers": {
-      "title": "Verified Users",
-      "desc": "Trade with confidence knowing all users are verified for authenticity and reliability."
+      "title": "सत्यापित उपयोगकर्ता",
+      "desc": "विश्वसनीयता और प्रामाणिकता के लिए सभी उपयोगकर्ता सत्यापित हैं, इस बात का भरोसा रखते हुए आत्मविश्वास के साथ व्यापार करें।"
     },
     "mobileFirst": {
-      "title": "Mobile-First Design",
-      "desc": "Access the platform from any device, optimized for mobile users with limited connectivity."
+      "title": "मोबाइल-प्रथम डिज़ाइन",
+      "desc": "किसी भी डिवाइस से प्लेटफ़ॉर्म तक पहुँचें, सीमित कनेक्टिविटी वाले मोबाइल उपयोगकों के लिए अनुकूलित।"
     }
   },
   "howItWorks": {
-    "title": "How FarmLink Works",
-    "subtitle": "Simple, straightforward, and designed for everyone - from tech-savvy buyers to farmers with basic phones.",
-    "step": "Step {{count}}",
+    "title": "फार्मलिंक कैसे काम करता है",
+    "subtitle": "सरल, सीधा और सभी के लिए डिज़ाइन किया गया - तकनीकी जानकार खरीदारों से लेकर साधारण फोन वाले किसानों तक।",
+    "step": "चरण {{count}}",
     "createAccount": {
-      "title": "Create Your Account",
-      "desc": "Sign up as a farmer or buyer in minutes. Verify your identity to start trading."
+      "title": "अपना खाता बनाएँ",
+      "desc": "कुछ ही मिनटों में किसान या खरीददार के रूप में साइन अप करें। व्यापार शुरू करने के लिए अपनी पहचान सत्यापित करें।"
     },
     "listProduce": {
-      "title": "List or Browse Produce",
-      "desc": "Farmers post their available produce. Buyers search and filter to find what they need."
+      "title": "उत्पाद सूचीबद्ध करें या ब्राउज़ करें",
+      "desc": "किसान अपनी उपलब्ध फसल पोस्ट करते हैं। खरीदार अपनी जरूरत के अनुसार खोज और फ़िल्टर करते हैं।"
     },
     "connect": {
-      "title": "Connect & Negotiate",
-      "desc": "Contact each other directly through the platform. Negotiate prices and quantities."
+      "title": "जुड़ें और बातचीत करें",
+      "desc": "प्लेटफ़ॉर्म के माध्यम से सीधे एक-दूसरे से संपर्क करें। कीमतों और मात्रा पर वार्ता करें।"
     },
     "getUpdates": {
-      "title": "Get SMS Updates",
-      "desc": "Receive instant SMS notifications for orders, inquiries, and price updates."
+      "title": "एसएमएस अपडेट प्राप्त करें",
+      "desc": "ऑर्डर, पूछताछ, और कीमत अपडेट के लिए तुरंत एसएमएस सूचनाएँ प्राप्त करें।"
     }
   },
   "problem": {
-    "kicker": "The Problem",
-    "title": "Farmers Are Losing Money Every Day",
+    "kicker": "समस्या",
+    "title": "किसान हर दिन पैसा गंवा रहे हैं",
     "card1": {
-      "title": "Post-Harvest Losses",
-      "desc": "30-40% of produce goes to waste due to lack of market access and poor storage facilities."
+      "title": "कटाई के बाद का नुकसान",
+      "desc": "उत्पाद का 30-40% हिस्सा बाजार तक पहुंच न होने और खराब भंडारण सुविधाओं के कारण बर्बाद हो जाता है।"
     },
     "card2": {
-      "title": "Middlemen Exploitation",
-      "desc": "Farmers receive only a fraction of the final selling price while middlemen take the majority."
+      "title": "मध्यस्थों का शोषण",
+      "desc": "किसानों को अंतिम बिक्री मूल्य का केवल एक हिस्सा मिलता है जबकि मध्यस्थ अधिकांश हिस्सा ले लेते हैं।"
     },
     "card3": {
-      "title": "No Market Information",
-      "desc": "Lack of real-time pricing data leaves farmers vulnerable to unfair negotiations."
+      "title": "कोई बाजार जानकारी नहीं",
+      "desc": "वास्तविक समय की मूल्य निर्धारण डेटा की कमी किसानों को अनुचित सौदों के लिए असुरक्षित छोड़ देती है।"
     },
     "card4": {
-      "title": "Climate Change",
-      "desc": "Unpredictable rain and sudden droughts mean traditional planting seasons are a gamble, leading to total crop failure."
+      "title": "जलवायु परिवर्तन",
+      "desc": "अनियमित बारिश और अचानक सूखे का मतलब है कि पारंपरिक बुवाई के मौसम एक जुआ हैं, जिससे पूरी फसल का नुकसान हो सकता है।"
     },
     "card5": {
-      "title": "Pests & Crop Disease",
-      "desc": "A new pest or disease can wipe out an entire farm in 48 hours, with no expert to ask for help."
+      "title": "कीट और फसल रोग",
+      "desc": "एक नया कीट या रोग पूरे खेत को 48 घंटे में नष्ट कर सकता है, और मदद के लिए कोई विशेषज्ञ नहीं होता।"
     }
   },
   "solution": {
-    "kicker": "Our Solution",
-    "title": "Direct Market Access & AI Co-Pilot",
+    "kicker": "हमारा समाधान",
+    "title": "डायरेक्ट मार्केट एक्सेस और एआई को-पायलट",
     "card1": {
-      "title": "Direct Connections",
-      "desc": "Connect farmers directly with buyers, eliminating middlemen and ensuring fair prices for both parties."
+      "title": "प्रत्यक्ष कनेक्शन",
+      "desc": "किसानों को सीधे खरीदारों से जोड़ें, मध्यस्थों को समाप्त करें और दोनों पक्षों के लिए उचित कीमत सुनिश्चित करें।"
     },
     "card2": {
-      "title": "Transparent Pricing",
-      "desc": "Real-time market prices visible to all users, ensuring fair negotiations and informed decisions."
+      "title": "पारदर्शी मूल्य निर्धारण",
+      "desc": "सभी उपयोगकर्ताओं के लिए वास्तविक समय के बाजार मूल्य दिखाई देते हैं, जो निष्पक्ष बातचीत और सूचित निर्णय सुनिश्चित करते हैं।"
     },
     "card3": {
-      "title": "SMS Notifications",
-      "desc": "Instant SMS alerts for new orders, price updates, and buyer inquiries - no internet required."
+      "title": "एसएमएस सूचनाएँ",
+      "desc": "नए ऑर्डर्स, कीमत अपडेट्स और खरीदार पूछताछ के लिए तुरंत SMS अलर्ट - किसी इंटरनेट की आवश्यकता नहीं।"
     },
     "card4": {
-      "title": "AI Planting Advisor",
-      "desc": "Our co-pilot analyzes climate data and forecasts to tell you the *exact optimal week* to plant your crops."
+      "title": "एआई पौधा सलाहकार",
+      "desc": "हमारा सह-पायलट जलवायु डेटा और पूर्वानुमानों का विश्लेषण करता है ताकि आपको अपने फसलों की *सटीक सर्वोत्तम सप्ताह* का पता चल सके।"
     },
     "card5": {
-      "title": "Instant Disease Scanner",
-      "desc": "Just take a picture of a sick leaf, and our AI will instantly identify the disease and give you low-cost treatment options."
+      "title": "तत्काल रोग स्कैनर",
+      "desc": "बस किसी बीमार पत्ते की तस्वीर लें, और हमारी एआई तुरंत बीमारी की पहचान कर देगी और आपको कम लागत वाले उपचार विकल्प बताएगी।"
     }
   }
 }
