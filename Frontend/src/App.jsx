@@ -77,8 +77,16 @@ import LandingPage from "./Pages/LandingPage";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Cart from "./Pages/Buyer/Cart";
-import AddProduct from "./Pages/AddProducts.jsx";
-// import MarketPrices from "./Pages/MarketPrices";
+import BlockchainExplorer from "./Pages/BlockChainExplorer";
+import PaymentsHome from "./Pages/paymentsHome";
+import TransactionDetail from "./Pages/TransactionDetails";
+import UserDashboard from "./Pages/Buyer/Dashboard";
+import OrdersPage from "./Pages/Farmer/Orders";
+import BlockchainPageFarmer from "./Pages/Farmer/Blockchain";
+import ProductsPage from "./Pages/Farmer/ProductsPage";
+import WalletPage from "./Pages/Buyer/WalletPage";
+import AnalyticsPage from "./Pages/Farmer/Analytics";
+
 function App() {
   return (
     <Routes>
@@ -99,14 +107,18 @@ function App() {
           </ProtectedRoute>
         }
       >
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="add-product" element={<AddProduct />} />
         <Route path="market-prices" element={<MarketPrices />} />
         <Route path="inquiries" element={<Inquires />} />
       </Route>
       <Route path="/browse" element={<BrowseProducts />} />
       <Route path="/details/:productId" element={<ProductDetails />} />
       <Route path="/cart" element={<Cart />} />
+
+      <Route path="/farmer/dashboard" element={<Dashboard />} />
+      <Route path="/farmer/orders" element={<OrdersPage />} />
+      <Route path="/farmer/products" element={<ProductsPage />} />
+      <Route path="/farmer/blockchain" element={<BlockchainPageFarmer />} />
+      <Route path="/farmer/analytics" element={<AnalyticsPage />} />
 
       {/* Buyer Pages */}
       <Route
@@ -120,6 +132,11 @@ function App() {
         <Route path="send-inquiry" element={<SendInquiries />} />
         <Route path="my-inquiries" element={<MyInquiries />} />
       </Route>
+      <Route path="/buyer-dashboard" element={<UserDashboard />} />
+      <Route path="/blockchain-explorer" element={<BlockchainExplorer />} />
+      <Route path="/buyer/wallet" element={<WalletPage />} />
+      <Route path="/paymenthome" element={<PaymentsHome />} />
+      <Route path="/transaction/:hash" element={<TransactionDetail />} />
     </Routes>
   );
 }

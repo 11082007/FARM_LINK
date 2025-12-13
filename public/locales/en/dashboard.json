@@ -1,0 +1,35 @@
+{
+  "welcome": "Welcome back, {{name}}!",
+  "subtitle": "Here's what's happening with your farm today.",
+
+  "stats": {
+    "listings": {
+      "title": "Active Listings",
+      "desc": "Currently available"
+    },
+    "revenue": {
+      "title": "Total Revenue",
+      "desc": "This month"
+    },
+    "inquiries": {
+      "title": "Inquiries",
+      "desc": "Pending responses"
+    },
+    "success": {
+      "title": "Success Rate",
+      "desc": "Listings sold"
+    }
+  },
+
+  "sms": {
+    "title": "SMS Notifications",
+    "desc": "Real-time SMS notifications powered by Twilio",
+    "button": "Send Test SMS"
+  },
+
+  "inquiriesList": {
+    "title": "Recent Inquiries",
+    "desc": "New messages from potential buyers.",
+    "viewAll": "View all inquiries"
+  }
+}

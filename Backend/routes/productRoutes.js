@@ -36,7 +36,32 @@ const { authMiddleware } = require('../utils/jwtAuth');
     }
 })
 */
-
+// Add this at the top of productRoutes.js (after the imports)
+router.get('/debug-models', (req, res) => {
+  try {
+    console.log('Database models:', Object.keys(db));
+    
+    // Check specifically for product models
+    const models = {
+      'Product': 'Product' in db,
+      'product': 'product' in db,
+      'Products': 'Products' in db,
+      'products': 'products' in db,
+      'Farm': 'Farm' in db,
+      'farm': 'farm' in db,
+      'User': 'User' in db
+    };
+    
+    res.json({
+      success: true,
+      models: models,
+      allModelNames: Object.keys(db),
+      sequelizeModels: Object.keys(db.sequelize.models)
+    });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
 // GET /api/products - Browse all product listings
 router.get('/', async (req, res) => {
   try {

@@ -1,0 +1,14 @@
+{
+  "navbar": {
+    "forFarmers": "For Farmers",
+    "forBuyers": "For Buyers",
+    "livestock": "Livestock",
+    "marketPrices": "Market Prices",
+    "animalServices": "Animal Services",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "aboutUs": "About Us",
+    "signIn": "Sign In",
+    "createAccount": "Create Account"
+  }
+}

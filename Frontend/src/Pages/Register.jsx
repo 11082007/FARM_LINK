@@ -63,31 +63,23 @@ export default function RegisterPage() {
       setLoading(false);
       return;
     }
-
     try {
-      const data = new FormData();
-      data.append("firstName", formData.firstName);
-      data.append("lastName", formData.lastName);
-      data.append("email", formData.email);
-      data.append("phone", formData.phone);
-      data.append("location", formData.location);
-      data.append("password", formData.password);
-      data.append("role", userType);
-      data.append("walletAddress", formData.walletAddress);
+      const userData = {
+        ...formData,
+        role: userType,
+      };
+
+      const { user, profile } = await registerUser(userData);
+
+      // Store user data in context
+      login({
+        user,
+        profile,
+        token: user.id, // or use session.access_token if needed
+      });
 
       if (userType === "farmer") {
-        data.append("idNumber", formData.idNumber);
-        if (idCardFile) {
-          data.append("idCard", idCardFile);
-        }
-      }
-
-      const registeredUser = await registerUser(data);
-
-      login(registeredUser);
-
-      if (userType === "farmer") {
-        navigate("/farmer-dashboard");
+        navigate("/farmer/dashboard");
       } else {
         navigate("/browse");
       }

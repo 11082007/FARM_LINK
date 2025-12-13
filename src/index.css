@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  /* AgriLink Custom Colors */
+  --color-primary: #267d2f;
+  --color-primary-dark: #145b1a;
+  --color-secondary: #f97316;
+  --color-neutral: #374151;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #f3f4f6;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #020817;
+
+  --color-foreground: #020817;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+
+  --color-accent: #0ea5e9;
+  --color-accent-foreground: #ffffff;
+
+  --color-border: #e2e8f0;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-primary-foreground: #ffffff;
+  --color-secondary-foreground: #ffffff;
+  --color-accent-foreground: #ffffff;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}

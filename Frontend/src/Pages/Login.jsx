@@ -7,6 +7,7 @@ import Button from "../Components/Button/index.jsx";
 import Card from "../Components/Card/index.jsx";
 import Input from "../Components/Input/index.jsx";
 import { loginUser } from "../Services/api.js";
+import { supabase } from "../lib/supabase.js";
 
 export default function Login() {
   const { t } = useTranslation("auth");
@@ -96,6 +97,7 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={isLoading}
           />
 
           <Input
@@ -108,6 +110,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={isLoading}
           />
 
           <div className="flex items-center justify-between text-sm">
@@ -115,6 +118,7 @@ export default function Login() {
               <input
                 type="checkbox"
                 className="rounded border-border text-primary focus:ring-primary"
+                disabled={isLoading}
               />
               <span className="text-muted-foreground">
                 {t("login.rememberMe")}
