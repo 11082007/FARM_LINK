@@ -77,13 +77,18 @@ import LandingPage from "./Pages/LandingPage";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Cart from "./Pages/Buyer/Cart";
-
+import AddProduct from "./Pages/AddProducts.jsx";
+// import MarketPrices from "./Pages/MarketPrices";
 function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/market-prices" element={<MarketPrices />} />
+      <Route path="/browse" element={<BrowseProducts />} />
+      {/* <Route path="/dashboard" element={<FarmerDashboard />} /> */}
+      {/* <Route path="/browse" element={<BrowseProducts />} /> */}
 
       {/* Farmer Pages */}
       <Route
@@ -95,6 +100,7 @@ function App() {
         }
       >
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="add-product" element={<AddProduct />} />
         <Route path="market-prices" element={<MarketPrices />} />
         <Route path="inquiries" element={<Inquires />} />
       </Route>
@@ -119,3 +125,44 @@ function App() {
 }
 
 export default App;
+
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// // Import your existing Layouts/Components
+// import NavBar from "./Components/NavBar/index.jsx"; // Assuming you have a Navbar
+// import Footer from "./Components/Footer/index.jsx";
+
+// // Import the Pages you just built
+// import LandingPage from "./Pages/LandingPage.jsx";
+// import Login from "./Pages/Login.jsx";
+// import Register from "./Pages/Public/Register.jsx"; // The updated Farmer Register
+// import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx"; // The new Admin Dashboard
+
+// // Import Farmer Dashboard (Assuming you have this from previous tasks)
+// import FarmerDashboard from "./Pages/Farmer/Dashboard.jsx";
+
+// function App() {
+//   return (
+//     <Router>
+//       <div className="bg-dark min-h-screen text-white font-sans">
+//         <NavBar />
+
+//         <Routes>
+//           {/* Public Routes */}
+//           <Route path="/" element={<LandingPage />} />
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/register" element={<Register />} />
+
+//           {/* Protected Routes (In real app, wrap these in authentication checks) */}
+//           <Route path="/admin" element={<AdminDashboard />} />
+//           <Route path="/dashboard" element={<FarmerDashboard />} />
+//         </Routes>
+
+//         <Footer />
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;

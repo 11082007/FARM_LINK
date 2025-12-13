@@ -12,6 +12,10 @@ import {
   ArrowRight,
   Tractor,
   ShoppingCart,
+  Loader2,
+  Wallet,
+  FileText,
+  Upload,
 } from "lucide-react";
 import Button from "../Components/Button/index.jsx";
 import Card from "../Components/Card/index.jsx";
@@ -24,6 +28,7 @@ export default function RegisterPage() {
   const navigate = useNavigate();
 
   const [userType, setUserType] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -33,51 +38,77 @@ export default function RegisterPage() {
     location: "",
     password: "",
     confirmPassword: "",
+    walletAddress: "",
+    idNumber: "",
   });
+
+  const [idCardFile, setIdCardFile] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setIdCardFile(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    
     if (formData.password !== formData.confirmPassword) {
       alert(t("register.passwordMismatch"));
+      setLoading(false);
       return;
     }
-    try {
-      const userData = {
-        ...formData,
-        role: userType,
-      };
-      const registeredUser = await registerUser(userData);
 
-      // Auto-login after registration
+    try {
+      const data = new FormData();
+      data.append("firstName", formData.firstName);
+      data.append("lastName", formData.lastName);
+      data.append("email", formData.email);
+      data.append("phone", formData.phone);
+      data.append("location", formData.location);
+      data.append("password", formData.password);
+      data.append("role", userType);
+      data.append("walletAddress", formData.walletAddress);
+
+      if (userType === "farmer") {
+        data.append("idNumber", formData.idNumber);
+        if (idCardFile) {
+          data.append("idCard", idCardFile);
+        }
+      }
+
+      const registeredUser = await registerUser(data);
+
       login(registeredUser);
-      // Redirect based on role
-      if( userType === "farmer") {
-        navigate("/farmer/dashboard");
+
+      if (userType === "farmer") {
+        navigate("/farmer-dashboard");
       } else {
-        navigate("/buyer/browse");
+        navigate("/browse");
       }
     } catch (error) {
       console.log("Registration failed:", error);
       alert("Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   if (!userType) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-base-200 p-4 py-12">
-        <Card className="w-full max-w-2xl p-8 shadow-2xl">
+        <Card className="w-full max-w-2xl p-8 shadow-2xl bg-white">
           <div className="mb-8 text-center">
             <Link to="/" className="mb-6 inline-flex items-center gap-2">
               <div className="rounded-xl bg-primary p-2">
                 <Sprout className="h-6 w-6 text-white" />
               </div>
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
+              <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
                 FarmLink
               </span>
             </Link>
@@ -130,14 +161,13 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4 py-12">
-      <Card className="w-full max-w-2xl p-8 shadow-2xl">
-        {/* Header */}
+      <Card className="w-full max-w-2xl p-8 shadow-2xl bg-white">
         <div className="mb-8 text-center">
           <Link to="/" className="mb-6 inline-flex items-center gap-2">
             <div className="rounded-xl bg-primary p-2">
               <Sprout className="h-6 w-6 text-white" />
             </div>
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
+            <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
               FarmLink
             </span>
           </Link>
@@ -147,6 +177,7 @@ export default function RegisterPage() {
         </div>
 
         <form className="space-y-5" onSubmit={handleSubmit}>
+          {/* Role Indicator */}
           <div className="rounded-xl border border-border bg-muted p-4">
             <p className="text-sm text-neutral">
               {t("register.registeringAs")}{" "}
@@ -168,7 +199,7 @@ export default function RegisterPage() {
               id="firstName"
               name="firstName"
               label={t("register.firstNameLabel")}
-              placeholder={t("register.firstNamePlaceholder")}
+              placeholder="John"
               icon={User}
               onChange={handleChange}
               value={formData.firstName}
@@ -178,7 +209,7 @@ export default function RegisterPage() {
               id="lastName"
               name="lastName"
               label={t("register.lastNameLabel")}
-              placeholder={t("register.lastNamePlaceholder")}
+              placeholder="Doe"
               icon={User}
               onChange={handleChange}
               value={formData.lastName}
@@ -191,53 +222,98 @@ export default function RegisterPage() {
             name="email"
             type="email"
             label={t("register.emailLabel")}
-            placeholder={t("register.emailPlaceholder")}
+            placeholder="john@example.com"
             icon={Mail}
             onChange={handleChange}
             value={formData.email}
             required
           />
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              label={t("register.phoneLabel")}
+              placeholder="+234..."
+              icon={Phone}
+              onChange={handleChange}
+              value={formData.phone}
+            />
+            <Input
+              id="location"
+              name="location"
+              label={t("register.locationLabel")}
+              placeholder="Lagos, Nigeria"
+              icon={MapPin}
+              onChange={handleChange}
+              value={formData.location}
+            />
+          </div>
+
           <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            label={t("register.phoneLabel")}
-            placeholder={t("register.phonePlaceholder")}
-            icon={Phone}
+            id="walletAddress"
+            name="walletAddress"
+            label="Crypto Wallet Address (Optional)"
+            placeholder="0x..."
+            icon={Wallet}
             onChange={handleChange}
-            value={formData.phone}
+            value={formData.walletAddress}
           />
-          <Input
-            id="location"
-            name="location"
-            label={t("register.locationLabel")}
-            placeholder={t("register.locationPlaceholder")}
-            icon={MapPin}
-            onChange={handleChange}
-            value={formData.location}
-          />
-          <Input
-            id="password"
-            name="password"
-            type="password"
-            label={t("register.passwordLabel")}
-            placeholder={t("register.passwordPlaceholder")}
-            icon={Lock}
-            onChange={handleChange}
-            value={formData.password}
-            required
-          />
-          <Input
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-            label={t("register.confirmPasswordLabel")}
-            placeholder={t("register.passwordPlaceholder")}
-            icon={Lock}
-            onChange={handleChange}
-            value={formData.confirmPassword}
-            required
-          />
+
+          {userType === "farmer" && (
+            <div className="p-4 bg-green-50 rounded-lg border border-green-100 space-y-4">
+              <Input
+                id="idNumber"
+                name="idNumber"
+                label="National ID Number (NIN)"
+                placeholder="Enter your ID Number"
+                icon={FileText}
+                onChange={handleChange}
+                value={formData.idNumber}
+                required
+              />
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Upload Valid ID Card
+                </label>
+                <div className="relative">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200"
+                  />
+                  <Upload className="absolute right-3 top-2 h-5 w-5 text-gray-400 pointer-events-none" />
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              label={t("register.passwordLabel")}
+              placeholder="••••••••"
+              icon={Lock}
+              onChange={handleChange}
+              value={formData.password}
+              required
+            />
+            <Input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              label={t("register.confirmPasswordLabel")}
+              placeholder="••••••••"
+              icon={Lock}
+              onChange={handleChange}
+              value={formData.confirmPassword}
+              required
+            />
+          </div>
 
           <div className="flex items-start gap-2">
             <input
@@ -263,15 +339,28 @@ export default function RegisterPage() {
               </Link>
             </label>
           </div>
-          <Link to="/farmer/dashboard">
-            <Button
-              type="submit"
-              btnClassName="group flex w-full h-12 items-center justify-center gap-2 rounded-xl text-base font-medium text-white shadow-lg transition-all bg-primary hover:bg-primary-dark"
-            >
-              {t("register.button")}
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
+
+          <Button
+            type="submit"
+            disabled={loading}
+            btnClassName={`group flex w-full h-12 items-center justify-center gap-2 rounded-xl text-base font-medium text-white shadow-lg transition-all ${
+              loading
+                ? "bg-primary/70 cursor-not-allowed"
+                : "bg-primary hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5"
+            }`}
+          >
+            {loading ? (
+              <>
+                <Loader2 className="h-5 w-5 animate-spin" />
+                Creating Account...
+              </>
+            ) : (
+              <>
+                {t("register.button")}
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </>
+            )}
+          </Button>
         </form>
 
         <div className="mt-6 text-center">

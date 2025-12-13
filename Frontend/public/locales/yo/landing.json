@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "Sopọ Awọn agbẹ taara pẹlu awọn ti onra",
+    "subtitle": "Ko si awọn agbedemeji. Ko si pipadanu lẹhin ikore. Owó tí ó dára àti èso tuntun."
+  },
+  "buttons": {
+    "startAsFarmer": "Bẹrẹ bi aladugbo",
+    "startAsBuyer": "Bẹrẹ bi olura kan"
+  },
+  "features": {
+    "title": "Ohun gbogbo ti o nilo lati ṣaṣeyọri",
+    "subtitle": "Ti a kọ ni pataki fun awọn agbẹ Afirika ati awọn ti onra, pẹlu awọn ẹya ti o ṣiṣẹ paapaa ni awọn agbegbe ti o ni asopọ kekere.",
+    "smartSearch": {
+      "title": "Smart Search & Filters",
+      "desc": "Wá ohun tí o nílò ní pàtó nípa lílo ìwádìí ìtẹ̀síwájú nípa irú èso, agbègbè, opoiyebí, àti iye ìdíyelé."
+    },
+    "escrow": {
+      "title": "Smart Adehun Escrow",
+      "desc": "Awọn owo ti wa ni fipamọ ni adehun ọlọgbọn ti o ni aabo ati pe a tu silẹ nikan ni kete ti o ba jẹrisi ọja naa."
+    },
+    "locationMatching": {
+      "title": "Ibaramu ti o da lori ipo",
+      "desc": "Sopọ pẹlu awọn agbẹ agbegbe ati awọn ti onra lati dinku awọn idiyele gbigbe ati tọju awọn ọja alabapade."
+    },
+    "smsAlerts": {
+      "title": "Awọn itaniji SMS gidi-akoko",
+      "desc": "Gba awọn iwifunni lẹsẹkẹsẹ lori foonu rẹ fun awọn aṣẹ tuntun, awọn iyipada idiyele, ati awọn ibeere ti onra."
+    },
+    "priceTransparency": {
+      "title": "Akoyawo Iye Ọja",
+      "desc": "Wọle si awọn idiyele ọja laaye lati ṣe awọn ipinnu alaye ati duna awọn iṣowo ododo."
+    },
+    "verifiedUsers": {
+      "title": "Awọn olumulo ti a ṣayẹwo",
+      "desc": "Iṣowo ni igboya mọ pe gbogbo awọn olumulo ni a jẹrisi fun otitọ ati igbẹkẹle."
+    },
+    "mobileFirst": {
+      "title": "Oniru alagbeka-akọkọ",
+      "desc": "Wọle si pẹpẹ lati eyikeyi ẹrọ, iṣapeye fun awọn olumulo alagbeka pẹlu intanẹẹti to lopin."
+    }
+  },
+  "howItWorks": {
+    "title": "Bawo ni FarmLink ṣe n ṣiṣẹ",
+    "subtitle": "Rọrun, taara, ati apẹrẹ fun gbogbo eniyan—lati awọn ti onra imọ-ẹrọ si awọn agbẹ pẹlu awọn foonu ipilẹ.",
+    "step": "Igbesẹ {{ka}}",
+    "createAccount": {
+      "title": "Ṣẹda akọọlẹ rẹ",
+      "desc": "Forukọsilẹ bi olugbo tabi olura ni iṣẹju. Ṣayẹwo idanimọ rẹ lati bẹrẹ iṣowo."
+    },
+    "listProduce": {
+      "title": "Akojọ tabi ṣawari awọn eso",
+      "desc": "Awọn agbẹ ṣe atokọ awọn ọja ti o wa. Awọn ti onra n wa ati ṣe àlẹmọ lati wa ohun ti wọn nilo."
+    },
+    "connect": {
+      "title": "Sopọ ati Idunadura",
+      "desc": "Kan si ara wọn taara nipasẹ pẹpẹ naa. Ṣe idunadura awọn idiyele ati awọn titoye."
+    },
+    "getUpdates": {
+      "title": "Gba awọn imudojuiwọn SMS",
+      "desc": "Gba awọn itaniji SMS lẹsẹkẹsẹ fun awọn aṣẹ, awọn ibeere, ati awọn imudojuiwọn idiyele."
+    }
+  },
+  "problem": {
+    "kicker": "Iṣoro naa",
+    "title": "Awọn aladugbo n pese owo lojoojumọ",
+    "card1": {
+      "title": "Awọn adanu lẹhin ikore",
+      "desc": "30-40% ti awọn ọja ti wa ni egbin nitori wiwọle ọja ti o lopin ati awọn ohun elo ibi ipamọ ti ko to."
+    },
+    "card2": {
+      "title": "Awọn Middlemen Ilokulo",
+      "desc": "Awọn agbẹ gba apakan kekere ti idiyele tita ikẹhin, lakoko ti awọn agbedemeji gba pupọ julọ."
+    },
+    "card3": {
+      "title": "Ko si Alaye Ọja",
+      "desc": "Aini data ifowoleri akoko gidi jẹ ki awọn agbẹ ni ipalara si awọn idunadura aiṣedeede."
+    },
+    "card4": {
+      "title": "Iyipada oju-ọjọ",
+      "desc": "Ojo ti ko ni asọtẹlẹ ati awọn ọgbẹ lojiji jẹ ki awọn akoko gbingbin ibile jẹ eewu, nigbagbogbo ti o yorisi ikuna irugbin patapata."
+    },
+    "card5": {
+      "title": "Awọn ajenirun ati awọn arun irugbin",
+      "desc": "Kokoro tuntun tabi arun le pa gbogbo oko run ni awọn wakati 48 nikan, laisi amoye ti o wa lati ṣe iranlọwọ."
+    }
+  },
+  "solution": {
+    "kicker": "Ojútùú Wa",
+    "title": "Wiwọle Ọja Taara ati AI Co-Pilot",
+    "card1": {
+      "title": "Awọn asopọ taara",
+      "desc": "Sopọ awọn agbẹ taara pẹlu awọn ti onra, gige awọn agbedemeji ati rii daju pe awọn idiyele deede fun gbogbo eniyan."
+    },
+    "card2": {
+      "title": "Ko ifowoleri",
+      "desc": "Awọn idiyele ọja akoko gidi wa fun gbogbo awọn olumulo, ni idaniloju awọn idunadura deede ati awọn ipinnu alaye."
+    },
+    "card3": {
+      "title": "Awọn iwifunni SMS",
+      "desc": "Gba awọn itaniji SMS lẹsẹkẹsẹ fun awọn aṣẹ tuntun, awọn ayipada idiyele, ati awọn ibeere ti onra—ko si intanẹẹti ti o nilo."
+    },
+    "card4": {
+      "title": "Onimọnran Ọgba AI",
+      "desc": "Alabaṣiṣẹpọ wa ṣe itupalẹ data oju-ọjọ ati awọn asọtẹlẹ lati sọ fun ọ ọsẹ ti o dara julọ lati gbin awọn irugbin rẹ."
+    },
+    "card5": {
+      "title": "Instant Disease Scanner",
+      "desc": "O kan ya aworan ti bunkun alaisan, ati pe AI wa yoo ṣe idanimọ arun naa lẹsẹkẹsẹ ati pese awọn aṣayan itọju ti ifarada."
+    }
+  }
+}

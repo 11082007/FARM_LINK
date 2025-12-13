@@ -2,61 +2,80 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../Context/AuthContext";
-import { Sprout, Mail, Lock, ArrowRight } from "lucide-react";
+import { Sprout, Mail, Lock, ArrowRight, Loader2 } from "lucide-react";
 import Button from "../Components/Button/index.jsx";
 import Card from "../Components/Card/index.jsx";
 import Input from "../Components/Input/index.jsx";
 import { loginUser } from "../Services/api.js";
 
-export default function LoginPage() {
+export default function Login() {
   const { t } = useTranslation("auth");
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // const simulatedApiResponse = {
-    //   user: {
-    //     id: "123",
-    //     name: "Test User",
-    //     email: email,
-    //     role: "farmer",
-    //   },
-    //   token: "fake-jwt-token",
-    // };
-
-    // login(simulatedApiResponse);
+    setLoading(true);
 
     try {
-    const userData = await loginUser(email, password);
+      // const userData = await loginUser(email, password);
+      // setEmail("");
+      // setPassword("");
 
-    // Store user + token in global context
-    login(userData);
+      // login(userData);
 
-    // Redirect based on role
-    if (userData.user.role === "farmer") {
-      navigate("/farmer-dashboard");
-    } else {
-      navigate("/browse");
+      // const userRole = userData.user?.role || userData.role;
+      // if (userRole === "farmer") {
+      //   navigate("/farmer-dashboard");
+      // } else {
+      //   navigate("/browse");
+      // }
+
+      const isFarmer = email.toLowerCase().includes("farmer");
+
+      const userData = {
+        user: {
+          id: "temp-id-123",
+          name: "Test User",
+          email: email,
+          role: isFarmer ? "farmer" : "buyer",
+        },
+        role: isFarmer ? "farmer" : "buyer",
+        token: "fake-jwt-token-12345",
+      };
+
+      setEmail("");
+      setPassword("");
+
+      login(userData);
+
+      const userRole = userData.user?.role || userData.role;
+      if (userRole === "farmer") {
+        navigate("/farmer-dashboard");
+      } else {
+        navigate("/browse");
+      }
+    } catch (error) {
+      console.log("Login failed:", error);
+      alert("Login failed. Please check your credentials and try again.");
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.log("Login failed:", error);
-    alert("Login failed. Please check your credentials and try again.");
   };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">
-      <Card className="w-full max-w-md p-8 shadow-2xl">
+      <Card className="w-full max-w-md p-8 shadow-2xl bg-white">
         <div className="mb-8 text-center">
           <Link to="/" className="mb-6 inline-flex items-center gap-2">
             <div className="rounded-xl bg-primary p-2">
               <Sprout className="h-6 w-6 text-white" />
             </div>
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
+            <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent">
               FarmLink
             </span>
           </Link>
@@ -111,10 +130,24 @@ export default function LoginPage() {
 
           <Button
             type="submit"
-            btnClassName="group flex w-full h-12 items-center justify-center gap-2 rounded-xl text-base font-medium text-white shadow-lg transition-all bg-primary hover:bg-primary-dark"
+            disabled={loading}
+            btnClassName={`group flex w-full h-12 items-center justify-center gap-2 rounded-xl text-base font-medium text-white shadow-lg transition-all ${
+              loading
+                ? "bg-primary/70 cursor-not-allowed"
+                : "bg-primary hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5"
+            }`}
           >
-            {t("login.button")}
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            {loading ? (
+              <>
+                <Loader2 className="h-5 w-5 animate-spin" />
+                Signing In...
+              </>
+            ) : (
+              <>
+                {t("login.button")}
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </>
+            )}
           </Button>
         </form>
 
@@ -145,5 +178,4 @@ export default function LoginPage() {
       </Card>
     </div>
   );
-}
 }

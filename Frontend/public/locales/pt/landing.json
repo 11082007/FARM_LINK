@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "Conectando Agricultores Diretamente aos Compradores",
+    "subtitle": "Sem intermediários. Sem perdas pós-colheita. Apenas preços justos e produtos frescos."
+  },
+  "buttons": {
+    "startAsFarmer": "Comece como Fazendeiro",
+    "startAsBuyer": "Comece como Comprador"
+  },
+  "features": {
+    "title": "Tudo o Que Você Precisa para Negociar com Sucesso",
+    "subtitle": "Construído especificamente para agricultores e compradores africanos, com recursos que funcionam mesmo em áreas com baixa conectividade.",
+    "smartSearch": {
+      "title": "Busca Inteligente e Filtros",
+      "desc": "Encontre exatamente o que você precisa com a pesquisa avançada por tipo de produto, localização, quantidade e faixa de preço."
+    },
+    "escrow": {
+      "title": "Contrato Inteligente de Custódia",
+      "desc": "Os fundos são mantidos em um contrato inteligente seguro e só são liberados quando você verifica o produto."
+    },
+    "locationMatching": {
+      "title": "Correspondência Baseada em Localização",
+      "desc": "Conecte-se com agricultores e compradores da sua região para reduzir os custos de transporte e garantir a frescura."
+    },
+    "smsAlerts": {
+      "title": "Alertas de SMS em Tempo Real",
+      "desc": "Receba notificações instantâneas de novos pedidos, alterações de preços e consultas de compradores diretamente no seu telefone."
+    },
+    "priceTransparency": {
+      "title": "Transparência de Preços de Mercado",
+      "desc": "Acesse os preços de mercado em tempo real para tomar decisões informadas e negociar acordos justos."
+    },
+    "verifiedUsers": {
+      "title": "Usuários Verificados",
+      "desc": "Comercialize com confiança sabendo que todos os usuários são verificados quanto à autenticidade e confiabilidade."
+    },
+    "mobileFirst": {
+      "title": "Design Mobile-First",
+      "desc": "Acesse a plataforma de qualquer dispositivo, otimizada para usuários móveis com conectividade limitada."
+    }
+  },
+  "howItWorks": {
+    "title": "Como o FarmLink Funciona",
+    "subtitle": "Simples, direto e projetado para todos - desde compradores experientes em tecnologia até agricultores com celulares básicos.",
+    "step": "Passo {{count}}",
+    "createAccount": {
+      "title": "Crie Sua Conta",
+      "desc": "Cadastre-se como agricultor ou comprador em minutos. Verifique sua identidade para começar a negociar."
+    },
+    "listProduce": {
+      "title": "Listar ou Navegar Produtos",
+      "desc": "Os agricultores postam seus produtos disponíveis. Os compradores procuram e filtram para encontrar o que precisam."
+    },
+    "connect": {
+      "title": "Conectar e Negociar",
+      "desc": "Entrem em contato diretamente através da plataforma. Negociem preços e quantidades."
+    },
+    "getUpdates": {
+      "title": "Receber atualizações por SMS",
+      "desc": "Receba notificações instantâneas por SMS sobre pedidos, consultas e atualizações de preços."
+    }
+  },
+  "problem": {
+    "kicker": "O Problema",
+    "title": "Os agricultores estão perdendo dinheiro todos os dias",
+    "card1": {
+      "title": "Perdas Pós-Colheita",
+      "desc": "30-40% da produção vai para o desperdício devido à falta de acesso ao mercado e às más condições de armazenamento."
+    },
+    "card2": {
+      "title": "Exploração por Intermediários",
+      "desc": "Os agricultores recebem apenas uma fração do preço final de venda, enquanto os intermediários ficam com a maior parte."
+    },
+    "card3": {
+      "title": "Sem informações de mercado",
+      "desc": "A falta de dados de preços em tempo real deixa os agricultores vulneráveis a negociações injustas."
+    },
+    "card4": {
+      "title": "Mudança Climática",
+      "desc": "Chuvas imprevisíveis e secas repentinas significam que as estações de plantio tradicionais são um risco, levando à perda total da colheita."
+    },
+    "card5": {
+      "title": "Pragas e Doenças de Culturas",
+      "desc": "Uma nova praga ou doença pode destruir uma fazenda inteira em 48 horas, sem nenhum especialista para pedir ajuda."
+    }
+  },
+  "solution": {
+    "kicker": "Nossa Solução",
+    "title": "Acesso Direto ao Mercado & Co-Piloto de IA",
+    "card1": {
+      "title": "Conexões Diretas",
+      "desc": "Conecte os agricultores diretamente com os compradores, eliminando os intermediários e garantindo preços justos para ambas as partes."
+    },
+    "card2": {
+      "title": "Preço Transparente",
+      "desc": "Preços de mercado em tempo real visíveis para todos os usuários, garantindo negociações justas e decisões informadas."
+    },
+    "card3": {
+      "title": "Notificações por SMS",
+      "desc": "Alertas instantâneos por SMS para novos pedidos, atualizações de preços e consultas de compradores - sem necessidade de internet."
+    },
+    "card4": {
+      "title": "Consultor de Plantio com IA",
+      "desc": "Nosso copiloto analisa dados climáticos e previsões para informar a *semana ideal exata* para plantar suas culturas."
+    },
+    "card5": {
+      "title": "Scanner Instantâneo de Doenças",
+      "desc": "Basta tirar uma foto de uma folha doente, e nossa IA identificará instantaneamente a doença e fornecerá opções de tratamento de baixo custo."
+    }
+  }
+}

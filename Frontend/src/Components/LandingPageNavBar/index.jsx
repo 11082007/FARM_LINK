@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { CircleArrowRight, Leaf, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Button from "../Button/index.jsx";
-// import { LanguageSelector } from "../LanguageSelector/index.jsx";
+import { LanguageSelector } from "../LanguageSelector/index.jsx";
 
 export default function NavBar() {
   const { t } = useTranslation("common");
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: "/features", label: t("navbar.features") },
-    { href: "/how-it-works", label: t("navbar.howItWorks") },
-    { href: "/about-us", label: t("navbar.aboutUs") },
-    { href: "/market-prices", label: t("navbar.marketPrices") },
+    { href: "#features", label: t("navbar.features") },
+    { href: "#how-it-works", label: t("navbar.howItWorks") },
+    { href: "#about-us", label: t("navbar.aboutUs") },
+    { href: "#market-prices", label: t("navbar.marketPrices") },
   ];
 
   return (
@@ -40,8 +40,8 @@ export default function NavBar() {
           </div>
 
           <div className="hidden items-center gap-3 md:flex">
-            <p className="text-sm">LangSelector</p>
-            {/* <LanguageSelector /> */}
+            {/* <p className="text-sm">LangSelector</p> */}
+            <LanguageSelector />
             <Link to="/login">
               <Button
                 variant="ghost"
@@ -87,7 +87,7 @@ export default function NavBar() {
             <hr className="my-2" />
 
             <div className="flex flex-col space-y-3">
-              <p className="px-3">LangSelector</p>
+              <LanguageSelector />
 
               <Link to="/login">
                 <Button

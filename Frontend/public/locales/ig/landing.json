@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "Ịjikọ ndị ọrụ ugbo kpọmkwem na ndị ahịa",
+    "subtitle": "Ọ dịghị ndị na-azụ ahịa n'etiti. Ọ dịghị mfu mgbe ị na-azụ ọka. Naanị ọnụahịa kwesịrị ekwesị na ngwaahịa ọhụrụ."
+  },
+  "buttons": {
+    "startAsFarmer": "Malite dị ka onye ugbo",
+    "startAsBuyer": "Malite dị ka Onye Na-azụ"
+  },
+  "features": {
+    "title": "Ihe niile ịchọrọ iji zụta ahịa nke ọma",
+    "subtitle": "E wuru ya nke ọma maka ndị ọrụ ugbo na ndị na-azụ ahịa Afrịka, nwere atụmatụ na-arụ ọrụ ọbụlagodi na ebe netwọk adịghị ike.",
+    "smartSearch": {
+      "title": "Nchọgharị Amamihe & Nzacha",
+      "desc": "Chọta kpọmkwem ihe ịchọrọ site na nchọgharị dị elu dịka ụdị ngwaahịa, ọnọdụ, oke, na ọnụahịa."
+    },
+    "escrow": {
+      "title": "Nkwekọrịta Mma Ezigbo",
+      "desc": "Ebe ego na-edebe na nkwekọrịta amamihe echekwara nke ọma ma a na-ewepụta ya naanị mgbe ị nyochachara ngwaahịa ahụ."
+    },
+    "locationMatching": {
+      "title": "Njikọ Dabere na Ebe",
+      "desc": "Jikọọ na ndị ọkà ọrụ ugbo na ndị na-azụ ahịa n’ebe gị nọ iji belata ụgwọ njem ma hụ na ngwaahịa dị ọhụrụ."
+    },
+    "smsAlerts": {
+      "title": "Mgbaàmà SMS n’oge ezumike",
+      "desc": "Nweta nkwupụta ozugbo maka iwu ọhụrụ, mgbanwe ọnụahịa, na ajụjụ ndị zụrụ ahịa ozugbo na ekwentị gị."
+    },
+    "priceTransparency": {
+      "title": "Ịkọrọ ọnụahịa ahịa n’ụzọ doro anya",
+      "desc": "Nweta ọnụ ahịa ahịa n'oge a iji mee mkpebi ziri ezi ma kwurịta ọnụ ahịa kwesịrị ekwesị."
+    },
+    "verifiedUsers": {
+      "title": "Ndị Ọrụ Eji Nleba Anya",
+      "desc": "Zụta ma ọ bụ ree ahịa n’ụzọ zuru obi, mara na a nyochachala onye ọ bụla maka ịdị ọcha na ntụkwasị obi."
+    },
+    "mobileFirst": {
+      "title": "Imewe Maka Mkpanaka Mbụ",
+      "desc": "Nweta ikpo okwu site na ngwaọrụ ọ bụla, dabara adaba maka ndị ọrụ ekwentị nwere njikọ ọjọọ."
+    }
+  },
+  "howItWorks": {
+    "title": "Otu FarmLink Si Arụ Ọrụ",
+    "subtitle": "Nzọụkwụ dị mfe, doro anya, ma emere onye ọ bụla - site n'aka ndị nwere nka na teknụzụ ruo n'aka ndị ọrụ ugbo nwere ekwentị dị mfe.",
+    "step": "Nzọụkwụ {{count}}",
+    "createAccount": {
+      "title": "Mepụta Akaụntụ Gị",
+      "desc": "Debanye aha dịka onye ọrụ ugbo ma ọ bụ onye na-azụta n'ime nkeji. Nyochaa njirimara gị iji malite ịzụ ahịa."
+    },
+    "listProduce": {
+      "title": "Depụta ma ọ bụ chọọ Mmepụta",
+      "desc": "Ụmụ ahịa ugbo na-ebipụta ihe ubi ha nwere. Ndị na-azụ ahịa na-achọ ma na-achịkọta iji chọta ihe ha chọrọ."
+    },
+    "connect": {
+      "title": "Jikọọ & Kwurịta",
+      "desc": "Kpọtụrụ ibe gị ozugbo site na ikpo okwu ahụ. Kwurịta ọnụahịa na ọnụ ọgụgụ."
+    },
+    "getUpdates": {
+      "title": "Nweta Mgbasa Ozi SMS",
+      "desc": "Nata ozi SMS ozugbo maka iwu, ajụjụ, na mmelite ọnụahịa."
+    }
+  },
+  "problem": {
+    "kicker": "Nsogbu",
+    "title": "Ụmụazụ ugbo na-efufu ego kwa ụbọchị",
+    "card1": {
+      "title": "Nfu nke Mgbe E Wupụtara Ọka",
+      "desc": "Pasent 30-40 nke ihe a na-emepụta na-apụ n'efu n'ihi enweghị ohere ahịa na ihe nchekwa ezughị oke."
+    },
+    "card2": {
+      "title": "Ịgwọ nke ndị n’azụ ahịa",
+      "desc": "Ụmụ ahịa na-enweta naanị akụkụ nke ọnụahịa ikpeazụ ịre ere ebe ndị n'etiti na-ejide nnukwu nke ahụ."
+    },
+    "card3": {
+      "title": "Enweghị Ozi Ahịa",
+      "desc": "Enweghị data ọnụahịa n'oge a na-eme ka ndị akụ na ụba bụrụ ndị dị mfe n'ọgụ ahịa na-adịghị mma."
+    },
+    "card4": {
+      "title": "Mgbanwe Ọdịdị Ọnọdụ Eluigwe na Ala",
+      "desc": "Mmiri na-adịghị akụ na ụba na oke okechi na-apụta n’ụzọ na-amaghị ama pụtara na oge ịgụ ọka ọdịnala bụ egwuregwu kpara akpa, nke na-eduga na ọdịda nri niile."
+    },
+    "card5": {
+      "title": "Ibe anụmanụ na ọrịa mkpụrụ osisi",
+      "desc": "Ọgwụgwụ ọhụụ ma ọ bụ ọrịa nwekwara ike ịkpụcha ugbo niile n'ime awa 48, enweghị ọkachamara ịjụ maka enyemaka."
+    }
+  },
+  "solution": {
+    "kicker": "Ngwọta Anyị",
+    "title": "Nweta Ahịa N'ụzọ Kwụ Ọtọ & Onye Nzọpụta AI",
+    "card1": {
+      "title": "Njikọ Kwụ Ọtọ",
+      "desc": "jikọọ ndị ọrụ ugbo ozugbo na ndị na-azụ ha, wepụ ndị n'etiti ma mee ka ọnụahịa dị mma maka ma akụkụ abụọ ahụ."
+    },
+    "card2": {
+      "title": "Ịzụ ahịa nke doro anya",
+      "desc": "Ego ahịa n’oge ndị a na-ahụ anya nye ndị ọrụ niile, na-eme ka nkwurịta okwu dị mma na mkpebi amamihe."
+    },
+    "card3": {
+      "title": "Nkwupụta SMS",
+      "desc": "Mgbaàmà SMS ozugbo maka iwu ọhụrụ, mmelite ọnụahịa, na ajụjụ ndị na-azụ ahịa - enweghị mkpa ịntanetị."
+    },
+    "card4": {
+      "title": "Onye Nduzi Ịkụ Mmiri Mmụta AI",
+      "desc": "Onye enyemaka ụgbọ elu anyị na-enyocha data ihu igwe na amụma iji gwa gị *izu kacha mma* iji kọọ mkpụrụ gị."
+    },
+    "card5": {
+      "title": "Ngwa Nyocha Ọrịa Ozugbo",
+      "desc": "Naanị were foto nke akwukwo na-arịa ọrịa, ma AI anyị ga-achọpụta ọrịa ahụ ozugbo ma nye gị nhọrọ ọgwụgwọ dị ọnụ ala."
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "Connecter les agriculteurs directement aux acheteurs",
+    "subtitle": "Pas d'intermédiaires. Pas de perte après récolte. Juste des prix équitables et des produits frais."
+  },
+  "buttons": {
+    "startAsFarmer": "Commencez en tant qu'agriculteur",
+    "startAsBuyer": "Commencer en tant qu'acheteur"
+  },
+  "features": {
+    "title": "Tout ce qu'il faut pour trader avec succès",
+    "subtitle": "Conçu spécifiquement pour les agriculteurs et acheteurs africains, avec des fonctionnalités qui fonctionnent même dans les zones à faible connectivité.",
+    "smartSearch": {
+      "title": "Recherche intelligente et filtres",
+      "desc": "Trouvez exactement ce dont vous avez besoin grâce à une recherche avancée par type de produit, localisation, quantité et fourchette de prix."
+    },
+    "escrow": {
+      "title": "Contrat intelligent en séquestre",
+      "desc": "Les fonds sont conservés dans un contrat intelligent sécurisé et ne sont libérés que lorsque vous vérifiez le produit."
+    },
+    "locationMatching": {
+      "title": "Appariement basé sur la localisation",
+      "desc": "Connectez-vous avec des agriculteurs et des acheteurs de votre région pour réduire les coûts de transport et garantir la fraîcheur."
+    },
+    "smsAlerts": {
+      "title": "Alertes SMS en temps réel",
+      "desc": "Recevez des notifications instantanées pour les nouvelles commandes, les changements de prix et les demandes des acheteurs directement sur votre téléphone."
+    },
+    "priceTransparency": {
+      "title": "Transparence des prix du marché",
+      "desc": "Accédez aux prix du marché en temps réel pour prendre des décisions éclairées et négocier des accords équitables."
+    },
+    "verifiedUsers": {
+      "title": "Utilisateurs vérifiés",
+      "desc": "Commercez en toute confiance en sachant que tous les utilisateurs sont vérifiés pour leur authenticité et leur fiabilité."
+    },
+    "mobileFirst": {
+      "title": "Conception mobile en priorité",
+      "desc": "Accédez à la plateforme depuis n'importe quel appareil, optimisée pour les utilisateurs mobiles avec une connectivité limitée."
+    }
+  },
+  "howItWorks": {
+    "title": "Comment fonctionne FarmLink",
+    "subtitle": "Simple, clair et conçu pour tout le monde - des acheteurs férus de technologie aux agriculteurs avec des téléphones basiques.",
+    "step": "Étape {{count}}",
+    "createAccount": {
+      "title": "Créez votre compte",
+      "desc": "Inscrivez-vous en tant qu'agriculteur ou acheteur en quelques minutes. Vérifiez votre identité pour commencer à commercer."
+    },
+    "listProduce": {
+      "title": "Lister ou Parcourir les Produits",
+      "desc": "Les agriculteurs publient leurs produits disponibles. Les acheteurs recherchent et filtrent pour trouver ce dont ils ont besoin."
+    },
+    "connect": {
+      "title": "Se connecter et négocier",
+      "desc": "Contactez-vous directement via la plateforme. Négociez les prix et les quantités."
+    },
+    "getUpdates": {
+      "title": "Recevoir des mises à jour par SMS",
+      "desc": "Recevez des notifications SMS instantanées pour les commandes, les demandes et les mises à jour de prix."
+    }
+  },
+  "problem": {
+    "kicker": "Le problème",
+    "title": "Les agriculteurs perdent de l'argent chaque jour",
+    "card1": {
+      "title": "Pertes après récolte",
+      "desc": "30 à 40 % des produits sont gaspillés en raison du manque d'accès au marché et de mauvaises installations de stockage."
+    },
+    "card2": {
+      "title": "Exploitation par des intermédiaires",
+      "desc": "Les agriculteurs ne reçoivent qu'une fraction du prix de vente final tandis que les intermédiaires s'approprient la majorité."
+    },
+    "card3": {
+      "title": "Aucune information sur le marché",
+      "desc": "Le manque de données sur les prix en temps réel laisse les agriculteurs vulnérables à des négociations injustes."
+    },
+    "card4": {
+      "title": "Changement climatique",
+      "desc": "Les pluies imprévisibles et les sécheresses soudaines font que les saisons de plantation traditionnelles sont un pari, entraînant des pertes totales de récolte."
+    },
+    "card5": {
+      "title": "Nuisibles et maladies des cultures",
+      "desc": "Un nouveau parasite ou maladie peut anéantir une ferme entière en 48 heures, sans aucun expert vers qui demander de l'aide."
+    }
+  },
+  "solution": {
+    "kicker": "Notre Solution",
+    "title": "Accès Direct au Marché & Co-Pilote IA",
+    "card1": {
+      "title": "Connexions directes",
+      "desc": "Connecter directement les agriculteurs aux acheteurs, en éliminant les intermédiaires et en garantissant des prix équitables pour les deux parties."
+    },
+    "card2": {
+      "title": "Tarification transparente",
+      "desc": "Prix du marché en temps réel visibles par tous les utilisateurs, garantissant des négociations équitables et des décisions éclairées."
+    },
+    "card3": {
+      "title": "Notifications SMS",
+      "desc": "Alertes SMS instantanées pour les nouvelles commandes, les mises à jour des prix et les demandes des acheteurs - pas besoin d'internet."
+    },
+    "card4": {
+      "title": "Conseiller en plantation IA",
+      "desc": "Notre copilote analyse les données et prévisions climatiques pour vous indiquer la *semaine optimale exacte* pour planter vos cultures."
+    },
+    "card5": {
+      "title": "Scanner de maladies instantané",
+      "desc": "Il vous suffit de prendre en photo une feuille malade, et notre IA identifiera instantanément la maladie et vous proposera des options de traitement à faible coût."
+    }
+  }
+}

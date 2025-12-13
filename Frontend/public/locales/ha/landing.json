@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "Haɗa Manoma Kai Tsaye da Masu Siyarwa",
+    "subtitle": "Babu dillalai. Babu asarar bayan girbi. Kawai farashi na gaskiya da kayan gona masu kyau."
+  },
+  "buttons": {
+    "startAsFarmer": "Fara a matsayin Manomi",
+    "startAsBuyer": "Fara a matsayin Mai Siyan"
+  },
+  "features": {
+    "title": "Duk Abin Da Kake Bukata Don Kasuwanci Cikin Nasara",
+    "subtitle": "An gina musamman don manoma da masu saye na Afirka, tare da fasaloli da ke aiki ko a wuraren da haɗin Intanet yake ƙasa.",
+    "smartSearch": {
+      "title": "Bincike Mai Hankali & Matattara",
+      "desc": "Sami daidai abin da kake bukata ta hanyar bincike na ci gaba bisa nau'in kayan gona, wuri, adadi, da kewayon farashi."
+    },
+    "escrow": {
+      "title": "Asusun Tsaka-Tsakin Fasahar Lantarki",
+      "desc": "Kudin ana adanawa a cikin kwangila mai hankali mai aminci kuma za a saki su ne kawai lokacin da ka tabbatar da kayan."
+    },
+    "locationMatching": {
+      "title": "Haɗa Bisa Wuri",
+      "desc": "Haɗu da manoma da masu siye a yankinku don rage kuɗin sufuri da tabbatar da ƙwanciyar sabo."
+    },
+    "smsAlerts": {
+      "title": "Gargadi ta SMS na Lokaci-Lokaci",
+      "desc": "Samu sanarwa nan take game da sabbin odar, canje-canjen farashi, da tambayoyin masu saye kai tsaye zuwa wayarka."
+    },
+    "priceTransparency": {
+      "title": "Bayyanar Farashin Kasuwa",
+      "desc": "Samu farashin kasuwa na ainihi a lokacin don yanke shawara mai kyau da kuma tattauna yarjejeniyoyi na adalci."
+    },
+    "verifiedUsers": {
+      "title": "Masu Amintattu",
+      "desc": "Kasuwanci cikin tabbaci, ka san duk masu amfani an tabbatar da sahihanci da amincinsu."
+    },
+    "mobileFirst": {
+      "title": "Zane Na Farko Na Wayar Salula",
+      "desc": "Samun dama zuwa dandalin daga kowanne na'ura, an tsara shi musamman don masu amfani da wayar hannu masu iyakacin haɗin intanet."
+    }
+  },
+  "howItWorks": {
+    "title": "Yadda FarmLink Ke Aiki",
+    "subtitle": "Mai sauƙi, kai tsaye, kuma an tsara shi don kowa - daga masu sayen kayan fasaha masu wayo zuwa manoma masu wayoyin salula na asali.",
+    "step": "Mataki {{count}}",
+    "createAccount": {
+      "title": "Ƙirƙiri Asusunka",
+      "desc": "Yi rajista a matsayin manomi ko mai saye cikin 'yan mintoci. Tabbatar da ainihinka don fara kasuwanci."
+    },
+    "listProduce": {
+      "title": "Jera ko Bincika Kayayyaki",
+      "desc": "Manoma suna wallafa kayan gona da suke da su. Masu saye suna bincike da tacewa don samun abin da suke bukata."
+    },
+    "connect": {
+      "title": "Haɗa & Sassauta",
+      "desc": "Ku tuntubi juna kai tsaye ta dandalin. Ku tattauna farashi da adadi."
+    },
+    "getUpdates": {
+      "title": "Samu Sabuntawa ta SMS",
+      "desc": "Karɓi sanarwar SMS nan take don odar, tambayoyi, da sabuntawar farashi."
+    }
+  },
+  "problem": {
+    "kicker": "Matsalar",
+    "title": "Manoma na Asarar Kudi Kowace Rana",
+    "card1": {
+      "title": "Asarar Bayan Girbi",
+      "desc": "Kashi 30-40% na amfanin gona yana lalacewa saboda rashin samun kasuwa da rashin ingantattun wuraren ajiya."
+    },
+    "card2": {
+      "title": "Cin Hanci da Rashin Gaskiya na Masu Tsaka Tsaki",
+      "desc": "Manoma suna samun ƙananan kaso kawai na farashin ƙarshe na sayarwa yayin da masu shiga tsakani ke ɗaukar mafi yawan sa."
+    },
+    "card3": {
+      "title": "Babu Bayanin Kasuwa",
+      "desc": "Rashin samun bayanan farashi na ainihi yana barin manoma cikin haɗari wajen ciniki marar adalci."
+    },
+    "card4": {
+      "title": "Sauyin Yanayi",
+      "desc": "Ruwan sama maras tabbas da fari na bazata na nufin lokutan shuka na gargajiya kamar wasa ne, wanda ke haifar da asarar amfanin gona gaba ɗaya."
+    },
+    "card5": {
+      "title": "Kwari da Cutar Amfanin gona",
+      "desc": "Sabuwar kwari ko cuta na iya hallaka gonaki gaba ɗaya cikin awanni 48, ba tare da ƙwararre don neman taimako ba."
+    }
+  },
+  "solution": {
+    "kicker": "Maganinmu",
+    "title": "Samun Kai Tsaye Zuwa Kasuwa & Mataimakin AI",
+    "card1": {
+      "title": "Haɗin Kai Tsaye",
+      "desc": "Haɗa manoma kai tsaye da masu saye, cire dillalai da tabbatar da farashi mai adalci ga dukkan bangarorin."
+    },
+    "card2": {
+      "title": "Farashin Bayyananne",
+      "desc": "Farashin kasuwa na ainihi da kowa zai iya gani, yana tabbatar da ciniki nagari da yanke shawara bisa sani."
+    },
+    "card3": {
+      "title": "Sanarwar SMS",
+      "desc": "Saƙonnin SMS nan take don sabbin odar, sabuntar farashi, da tambayoyin masu siye - ba a buƙatar intanet."
+    },
+    "card4": {
+      "title": "Shawarar Noman AI",
+      "desc": "Abokin tuki namu yana nazarin bayanan yanayi da hasashen yanayi don gaya maka *makon da ya fi dacewa* daidaiku don shuka amfanin gona."
+    },
+    "card5": {
+      "title": "Na'urar Gano Cutar Nan Take",
+      "desc": "Kawai ɗauki hoton ganye mai rashin lafiya, kuma AI ɗinmu zai gane cutar nan take kuma ya ba ka zaɓuɓɓukan magani masu rahusa."
+    }
+  }
+}

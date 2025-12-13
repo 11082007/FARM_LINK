@@ -1,7 +1,15 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { mockProduceListings } from "../../Services/api";
-import { MapPin, Package, ShoppingCart, Zap, ArrowLeft, CheckCircle, XCircle } from "lucide-react";
+import mockProduceListings from "../../Services/api";
+import {
+  MapPin,
+  Package,
+  ShoppingCart,
+  Zap,
+  ArrowLeft,
+  CheckCircle,
+  XCircle,
+} from "lucide-react";
 import { useCart } from "../../Context/CartContext";
 import OrderModal from "../../Components/Order";
 
@@ -88,13 +96,15 @@ const ProductDetails = () => {
                     e.target.src = `https://placehold.co/600x400/10b981/white?text=${name}`;
                   }}
                 />
-                
+
                 {/* Availability Badge */}
-                <div className={`absolute top-4 right-4 px-4 py-2 rounded-full font-semibold text-sm shadow-lg ${
-                  available 
-                    ? "bg-green-500 text-white" 
-                    : "bg-red-500 text-white"
-                }`}>
+                <div
+                  className={`absolute top-4 right-4 px-4 py-2 rounded-full font-semibold text-sm shadow-lg ${
+                    available
+                      ? "bg-green-500 text-white"
+                      : "bg-red-500 text-white"
+                  }`}
+                >
                   {available ? (
                     <span className="flex items-center gap-1">
                       <CheckCircle size={16} />
@@ -134,7 +144,8 @@ const ProductDetails = () => {
                     Description
                   </h2>
                   <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {description || "Fresh, high-quality produce sourced directly from local farms. Perfect for your daily needs with guaranteed freshness and excellent taste."}
+                    {description ||
+                      "Fresh, high-quality produce sourced directly from local farms. Perfect for your daily needs with guaranteed freshness and excellent taste."}
                   </p>
                 </div>
 
@@ -142,18 +153,24 @@ const ProductDetails = () => {
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 border-2 border-green-200 dark:border-green-800">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Price per kg</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        Price per kg
+                      </p>
                       <p className="text-5xl font-bold text-green-600 dark:text-green-400">
                         ₦{pricePerKg.toLocaleString()}
                       </p>
                     </div>
-                    
+
                     <div className="text-right">
                       <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-700 px-4 py-2 rounded-xl shadow-md">
                         <Package size={20} />
                         <div className="text-left">
-                          <p className="text-xs text-gray-500 dark:text-gray-400">In Stock</p>
-                          <p className="text-lg font-bold">{quantityAvailable} kg</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                            In Stock
+                          </p>
+                          <p className="text-lg font-bold">
+                            {quantityAvailable} kg
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -161,7 +178,10 @@ const ProductDetails = () => {
 
                   {/* Location */}
                   <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 bg-white dark:bg-slate-700 px-4 py-3 rounded-xl">
-                    <MapPin size={18} className="text-green-600 dark:text-green-400" />
+                    <MapPin
+                      size={18}
+                      className="text-green-600 dark:text-green-400"
+                    />
                     <span className="font-medium">{location}</span>
                   </div>
                 </div>
@@ -223,9 +243,14 @@ const ProductDetails = () => {
         <div className="grid md:grid-cols-3 gap-6 mt-8">
           <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg">
             <div className="w-12 h-12 bg-green-100 dark:bg-green-900/20 rounded-xl flex items-center justify-center mb-4">
-              <CheckCircle size={24} className="text-green-600 dark:text-green-400" />
+              <CheckCircle
+                size={24}
+                className="text-green-600 dark:text-green-400"
+              />
             </div>
-            <h3 className="font-bold text-gray-900 dark:text-white mb-2">Quality Assured</h3>
+            <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+              Quality Assured
+            </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Fresh produce sourced directly from verified farms
             </p>
@@ -235,7 +260,9 @@ const ProductDetails = () => {
             <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center mb-4">
               <Package size={24} className="text-blue-600 dark:text-blue-400" />
             </div>
-            <h3 className="font-bold text-gray-900 dark:text-white mb-2">Fast Delivery</h3>
+            <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+              Fast Delivery
+            </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Quick and reliable delivery to your doorstep
             </p>
@@ -243,9 +270,14 @@ const ProductDetails = () => {
 
           <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg">
             <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center mb-4">
-              <MapPin size={24} className="text-purple-600 dark:text-purple-400" />
+              <MapPin
+                size={24}
+                className="text-purple-600 dark:text-purple-400"
+              />
             </div>
-            <h3 className="font-bold text-gray-900 dark:text-white mb-2">Local Source</h3>
+            <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+              Local Source
+            </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Supporting local farmers and communities
             </p>

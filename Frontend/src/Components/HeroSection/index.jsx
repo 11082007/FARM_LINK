@@ -6,8 +6,9 @@ import farmerMan from "../../assets/farmerMan.jpg";
 import farmerOne from "../../assets/farmerOne.jpg";
 import farmerWoman from "../../assets/farmerWoman.jpg";
 import farmerWomen from "../../assets/farmerWomen.jpg";
+import smileyWomanWithPhone from "../../assets/smileyWomanWithPhone.png";
 import { ArrowRight } from "lucide-react";
-const heroImages = [farmerWomen, farmerMan, farmerOne, farmerWoman];
+const heroImages = [smileyWomanWithPhone, farmerMan, farmerOne, farmerWoman];
 export function HeroSection() {
   const { t } = useTranslation("landing");
 

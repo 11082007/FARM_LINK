@@ -1,20 +1,16 @@
 import axios from "axios";
 
-/* ---------------------------------------------------------
-   AXIOS INSTANCE (GLOBAL)
------------------------------------------------------------*/
 const api = axios.create({
-  baseURL: "http://localhost:3000/api", 
+  // baseURL: "http://localhost:3000/api",
+  baseURL: "https://farmlink-production.up.railway.app/api",
   withCredentials: false,
 });
 
-// Automatically attach token to all requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
-
 
 export const registerUser = async (userData) => {
   const res = await api.post("/auth/register", userData);
@@ -26,7 +22,6 @@ export const loginUser = async (email, password) => {
   return res.data;
 };
 
-
 export const getProduceListings = async () => {
   const res = await api.get("/produce");
   return res.data;
@@ -37,12 +32,10 @@ export const getProduceById = async (id) => {
   return res.data;
 };
 
-// For the Farmer Dashboard (personal listings)
 export const getMyFarmListings = async () => {
   const res = await api.get("/produce/my-listings");
   return res.data;
 };
-
 
 export const getInquiries = async () => {
   const res = await api.get("/inquiries");
@@ -54,27 +47,22 @@ export const sendInquiry = async (inquiryData) => {
   return res.data;
 };
 
-
 export const searchProducts = async (query) => {
   const res = await api.get(`/produce/search?q=${query}`);
   return res.data;
 };
 
-
 const WEATHER_API_KEY = import.meta.env.VITE_TOMORROW_API_KEY;
 const GEOCODE_API_KEY = import.meta.env.VITE_OPENCAGE_API_KEY;
 
 export const getCoordinates = async (locationName) => {
-  const res = await axios.get(
-    "https://api.opencagedata.com/geocode/v1/json",
-    {
-      params: {
-        q: locationName,
-        key: GEOCODE_API_KEY,
-        limit: 1,
-      },
-    }
-  );
+  const res = await axios.get("https://api.opencagedata.com/geocode/v1/json", {
+    params: {
+      q: locationName,
+      key: GEOCODE_API_KEY,
+      limit: 1,
+    },
+  });
 
   if (!res.data.results?.length) throw new Error("Location not found");
 
@@ -83,16 +71,13 @@ export const getCoordinates = async (locationName) => {
 };
 
 export const getWeatherForecast = async (lat, lon) => {
-  const res = await axios.get(
-    "https://api.tomorrow.io/v4/weather/realtime",
-    {
-      params: {
-        location: `${lat},${lon}`,
-        apikey: WEATHER_API_KEY,
-        units: "metric",
-      },
-    }
-  );
+  const res = await axios.get("https://api.tomorrow.io/v4/weather/realtime", {
+    params: {
+      location: `${lat},${lon}`,
+      apikey: WEATHER_API_KEY,
+      units: "metric",
+    },
+  });
 
   return res.data;
 };
@@ -102,7 +87,8 @@ export const getRecommendations = (weather) => {
     return ["Weather data unavailable"];
   }
 
-  const { temperature: temp, precipitationIntensity: rain = 0 } = weather.data.values;
+  const { temperature: temp, precipitationIntensity: rain = 0 } =
+    weather.data.values;
   const recs = [];
 
   if (temp < 18) recs.push("⚠️ Cold — protect crops from frost");
@@ -114,6 +100,5 @@ export const getRecommendations = (weather) => {
 
   return recs;
 };
-
 
 export default api;
